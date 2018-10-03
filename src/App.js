@@ -5,6 +5,7 @@ import {IntlProvider} from 'react-intl'
 import {connect} from 'react-redux'
 import PropTypes from 'prop-types';
 import messages from './intl/messages'
+import './assets/main.scss'
 
 class App extends Component {
     render() {

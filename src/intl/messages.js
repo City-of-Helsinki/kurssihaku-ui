@@ -1,10 +1,10 @@
 
 export default{
     en: {
-        'nav.dashboard': 'Welcome',
+        'nav.dashboard': 'Welcome to the course',
     },
 
     fi: {
-        'nav.dashboard': 'Tervetuloa',
+        'nav.dashboard': 'Tervetuloa Kurssihaku',
     },
 }
