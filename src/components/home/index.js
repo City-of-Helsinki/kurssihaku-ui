@@ -3,6 +3,7 @@ import {FormattedMessage} from 'react-intl'
 import {connect} from 'react-redux'
 import {setLocale} from '../../actions'
 import PropTypes from 'prop-types';
+import {Button} from 'reactstrap';
 
 
 class test extends Component {
@@ -23,7 +24,7 @@ class test extends Component {
                 <hr/>
                 <div>
                     <FormattedMessage id="nav.dashboard" defaultMessage="Dashboard" />
-
+                    <Button>Send</Button>
                 </div>
             </div>
         )
