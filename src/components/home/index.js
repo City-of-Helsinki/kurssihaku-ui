@@ -4,8 +4,7 @@ import {connect} from 'react-redux'
 import {setLocale} from '../../actions'
 import PropTypes from 'prop-types';
 import {Button, Form, FormGroup, Label, Input, FormText} from 'reactstrap';
-import HelIcon from '../HelIcon'
-
+import './index.scss'
 
 class test extends Component {
     
@@ -19,8 +18,8 @@ class test extends Component {
         return (
             <div>
                 <nav>
-                    <a role="button" onClick={this.changeLanguageToEn}>En</a> |
-                    <a role="button" onClick={this.changeLanguageToFi}>Fi</a>
+                    <button onClick={this.changeLanguageToEn}>En</button> 
+                    <button onClick={this.changeLanguageToFi}>Fi</button>
                 </nav>               
                 <hr/>
                 <div>
@@ -29,7 +28,6 @@ class test extends Component {
                     <Input type="email" name="email" id="exampleEmail" placeholder="with a placeholder" />
                     <Button color="info">Send</Button>
                 </div>
-                <HelIcon iconName="calendar" />hello
             </div>
         )
     }

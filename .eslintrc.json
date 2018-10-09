@@ -6,6 +6,7 @@
     },
     "extends": [
         "eslint:recommended",
+        "plugin:jsx-a11y/recommended",
         "react-app",
         "plugin:import/errors",
         "plugin:import/warnings"
@@ -18,7 +19,8 @@
         "sourceType": "module"
     },
     "plugins": [
-        "react"
+        "react",
+        "jsx-a11y"
     ],
     "rules": {
         "no-console":"warn",

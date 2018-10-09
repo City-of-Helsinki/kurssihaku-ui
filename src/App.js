@@ -3,8 +3,10 @@ import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import Home from './components/home'
 import {IntlProvider} from 'react-intl'
 import {connect} from 'react-redux'
+import {Container} from 'reactstrap'
 import PropTypes from 'prop-types';
 import messages from './intl/messages'
+import Header from './components/layout/header'
 import './assets/main.scss'
 
 class App extends Component {
@@ -13,11 +15,12 @@ class App extends Component {
         return (
             <Router>
                 <IntlProvider locale={lang} messages={messages[lang]} >
-                    <div>
+                    <Container fluid>
+                        <Header />
                         <Switch>
                             <Route path="/" exact component={Home} />
                         </Switch>
-                    </div>
+                    </Container>
                 </IntlProvider>
             </Router>
         )
