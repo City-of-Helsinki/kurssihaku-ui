@@ -4,6 +4,7 @@ import {connect} from 'react-redux'
 import {setLocale} from '../../actions'
 import PropTypes from 'prop-types';
 import {Button, Form, FormGroup, Label, Input, FormText} from 'reactstrap';
+import HelIcon from '../HelIcon'
 
 
 class test extends Component {
@@ -26,8 +27,9 @@ class test extends Component {
                     <h1><FormattedMessage id="nav.dashboard" defaultMessage="Dashboard" /></h1>
                     <Label for="exampleEmail">Email</Label>
                     <Input type="email" name="email" id="exampleEmail" placeholder="with a placeholder" />
-                    <Button btn-sm color="info">Send</Button>
+                    <Button color="info">Send</Button>
                 </div>
+                <HelIcon iconName="calendar" />hello
             </div>
         )
     }

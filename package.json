@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "bootstrap": "4",
+    "bootstrap": "4.1.1",
+    "hel-icons": "^1.0.0-beta.3",
     "node-sass": "^4.9.3",
     "open-city-design": "^1.0.0-alpha.2",
     "prop-types": "^15.6.2",
