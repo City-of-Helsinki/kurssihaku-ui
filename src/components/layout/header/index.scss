@@ -1,21 +1,23 @@
+@import "../../../assets/variables";
+
 .header{
     
     .navbar{
-        height: 70px;
+        height: 65px;
         align-items: center;
     }
     .nav-ul{
         align-items: center;
     }
     .helsinki-logo {
-        fill: #009246;
+        fill: $green;
         height: 60px;
         width: 100px;
     }
     
     .globe-icon,
     .user-icon {
-        fill: #009246;
+        fill: $green;
         height: 30px;
         width: 50px;
     }
@@ -28,7 +30,7 @@
         align-items: center;
     }
     .header-text{
-        color:#009246;
+        color:$green;
         font-weight: bold;
     }
 }

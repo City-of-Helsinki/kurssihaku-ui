@@ -7,6 +7,7 @@ import {Container} from 'reactstrap'
 import PropTypes from 'prop-types';
 import messages from './intl/messages'
 import Header from './components/layout/header'
+import MenuBar from './components/layout/navbar';
 import './assets/main.scss'
 
 class App extends Component {
@@ -17,6 +18,7 @@ class App extends Component {
                 <IntlProvider locale={lang} messages={messages[lang]} >
                     <Container fluid>
                         <Header />
+                        <MenuBar />
                         <Switch>
                             <Route path="/" exact component={Home} />
                         </Switch>

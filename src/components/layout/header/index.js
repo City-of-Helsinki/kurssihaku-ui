@@ -10,7 +10,10 @@ import {
     UncontrolledDropdown,
     DropdownToggle,
     DropdownMenu,
-    DropdownItem} from 'reactstrap';
+    DropdownItem} from 'reactstrap'
+import {connect} from 'react-redux'
+import {setLocale} from '../../../actions'
+import PropTypes from 'prop-types';
 import './index.scss' 
 
 class Header extends Component {
@@ -20,7 +23,25 @@ class Header extends Component {
             isOpen: false,
         };
     }
+
+    changeLanguageToEn = ()=>{
+        this.props.setLocale('en')
+    }
+    changeLanguageToFi = ()=>{
+        this.props.setLocale('fi')
+    }
+    changeLanguageToSv = ()=>{
+        this.props.setLocale('sv')
+    }
     render() {
+        let lang = this.props.lang
+        if(lang === 'en'){
+            lang = 'EN'
+        }
+        else if(lang === 'fi'){
+            lang = 'FI'
+        }
+        else lang = 'SV'
         return (
             <div className="header">
                 <Navbar color="faded" light expand="xs">
@@ -29,14 +50,17 @@ class Header extends Component {
                         <UncontrolledDropdown nav inNavbar>
                                 
                             <DropdownToggle nav>
-                                <Globe className="globe-icon" /><span className="header-text">FI</span>
+                                <Globe className="globe-icon" /><span className="header-text">{lang}</span>
                             </DropdownToggle>
                             <DropdownMenu right>
-                                <DropdownItem>
-                                        EN
+                                <DropdownItem onClick={this.changeLanguageToEn}>
+                                        English
                                 </DropdownItem>
-                                <DropdownItem>
-                                        SV
+                                <DropdownItem onClick={this.changeLanguageToFi}>
+                                        Suomi
+                                </DropdownItem>
+                                <DropdownItem onClick={this.changeLanguageToSv}>
+                                        Svenska
                                 </DropdownItem>
                             </DropdownMenu>
                         </UncontrolledDropdown>
@@ -51,4 +75,14 @@ class Header extends Component {
     }
 }
 
-export default Header
+Header.propTypes = {
+    setLocale: PropTypes.func.isRequired,
+}
+
+const mapStateToProps = state =>{
+    return{
+        lang: state.locale.lang,
+    }
+}
+
+export default connect(mapStateToProps, {setLocale})(Header)

@@ -1,0 +1,53 @@
+.front-banner{
+    background: url(https://www.hel.fi/static/heltu/palvelukartta/kuvat/Teurastamo.jpg);
+    max-width: 100%;
+    height: 80vh;
+
+    &:before{
+        content: "";
+        position: absolute;
+        left: 0; right: 0;
+        top: 0; bottom: 0;
+        background: rgba(3, 41, 21, 0.5);
+    }
+
+    .banner-content{
+        width: 500px;
+        padding: 50px 0 0 50px;
+        position: absolute;
+        h1{
+            color: white;
+            font-weight: bold;
+            font-size: 5em;
+        }
+
+        p{
+            padding-top: 15px;
+            color: white;
+            font-size: 1.5em;
+            font-weight: 500;
+            padding-bottom: 20px;
+        }
+
+        input{
+            border-bottom:4px solid white;
+            color:white;
+            &:focus{
+                background: none;
+            }            
+        }
+        input[type="text"] {
+            font-size:25px;
+        }
+
+        ::placeholder{
+            color: white;
+            font-size: 0.9em;
+            font-weight: 500;
+        }
+    }
+
+    
+
+   
+}
