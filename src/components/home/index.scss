@@ -1,6 +1,26 @@
+@import "../../assets/variables";
+
+section{
+    .front-button{
+        display: flex;
+        justify-content: center;
+        padding-top: 40px;;
+        padding-bottom: 40px;
+    }
+    .btn{
+        padding: 15px 30px;
+        font-size: 1.2em;
+        font-weight: bold;
+    }
+}
+
+
 .front-banner{
-    background: url(https://www.hel.fi/static/heltu/palvelukartta/kuvat/Teurastamo.jpg);
-    max-width: 100%;
+    background-image: url('../../assets/images/home-bg.jpg');
+    width: 100%;
+    background-size: cover;
+    background-position: center bottom;
+    background-repeat: no-repeat;
     height: 80vh;
 
     &:before{
@@ -17,8 +37,6 @@
         position: absolute;
         h1{
             color: white;
-            font-weight: bold;
-            font-size: 5em;
         }
 
         p{
@@ -28,8 +46,14 @@
             font-weight: 500;
             padding-bottom: 20px;
         }
-
+        .search-icon{
+            height: 50px;
+            width: 70px;
+            fill: white;
+            transform: scaleX(-1);
+        }
         input{
+            border: none;
             border-bottom:4px solid white;
             color:white;
             &:focus{
@@ -45,9 +69,38 @@
             font-size: 0.9em;
             font-weight: 500;
         }
-    }
-
-    
-
+    }   
    
+}
+
+
+//css for front-page icons
+.icon-container{
+    background: $green;
+    width: 100%;
+    .front-icons{        
+        display: flex;
+        justify-content: space-around;
+    
+        img{
+             height: 80px;
+        }
+        figcaption{
+            color: white;
+            font-weight: bold;
+            font-size: 1.2em;
+            padding-top: 20px;;
+        }
+    }   
+}
+
+
+//css for language course
+.language-course-container{
+    padding: 20px;
+
+    .card{
+        background: $light-grey !important;
+    }
+    
 }
