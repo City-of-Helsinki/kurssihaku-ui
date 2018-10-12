@@ -1,4 +1,5 @@
 @import "../../assets/variables";
+@import "../../assets/mixins";
 
 section{
     .front-button{
@@ -30,11 +31,13 @@ section{
         top: 0; bottom: 0;
         background: rgba(3, 41, 21, 0.5);
     }
+    
 
     .banner-content{
         width: 500px;
         padding: 50px 0 0 50px;
         position: absolute;
+        
         h1{
             color: white;
         }
@@ -73,11 +76,14 @@ section{
    
 }
 
-
 //css for front-page icons
-.icon-container{
-    background: $green;
+.icon-container{    
+    background-color: $green;
     width: 100%;
+    // &::before{
+    //     @include koro(basic, $green, 400);
+    // }
+    
     .front-icons{        
         display: flex;
         justify-content: space-around;
@@ -92,8 +98,8 @@ section{
             padding-top: 20px;;
         }
     }   
+    
 }
-
 
 //css for language course
 .language-course-container{
