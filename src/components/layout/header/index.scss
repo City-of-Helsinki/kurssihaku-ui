@@ -10,14 +10,14 @@
         align-items: center;
     }
     .helsinki-logo {
-        fill: $green;
+        fill: $hel-tram;
         height: 60px;
         width: 100px;
     }
     
     .globe-icon,
     .user-icon {
-        fill: $green;
+        fill: $hel-tram;
         height: 30px;
         width: 50px;
     }
@@ -30,7 +30,7 @@
         align-items: center;
     }
     .header-text{
-        color:$green;
+        color:$hel-tram;
         font-weight: bold;
     }
 }

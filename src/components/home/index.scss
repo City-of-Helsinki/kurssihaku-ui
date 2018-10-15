@@ -13,6 +13,10 @@ section{
         font-size: 1.2em;
         font-weight: bold;
     }
+
+    h2{
+        padding: 30px;
+    }
 }
 
 
@@ -78,7 +82,7 @@ section{
 
 //css for front-page icons
 .icon-container{    
-    background-color: $green;
+    background-color: $hel-tram;
     width: 100%;
     // &::before{
     //     @include koro(basic, $green, 400);
@@ -106,7 +110,30 @@ section{
     padding: 20px;
 
     .card{
-        background: $light-grey !important;
+        background: $hel-light !important;
+        & img{
+            padding: 15px;
+        }
+    }
+    .card-body{
+        padding: 10px 10px 30px 10px;
+        text-align: center;
+    }
+    .card-subtitle{
+        color: $hel-tram;
+    }
+    .card-text{
+       color: $hel-tram;
+       font-size: 1.5em;
+       font-weight: bold;
+    }
+    .date{
+        font-size: 18px;
+        color: $black;
+        font-weight: normal;
+    }
+    .card-item{
+        padding-bottom: 20px;
     }
     
 }
