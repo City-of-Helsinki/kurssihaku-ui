@@ -6,6 +6,8 @@ import langIcon from '../../assets/icons/icon-lang@2x.png'
 import artIcon from '../../assets/icons/icon-art@2x.png'
 import techIcon from '../../assets/icons/icon-tech@2x.png'
 import LanguageCourse from './LanguageCourse'
+import Othercourse from './OtherCourse'
+import Footer from '../layout/footer'
 import './index.scss'
 
 class FrontPage extends Component {
@@ -64,6 +66,12 @@ class FrontPage extends Component {
                 </section>
                 <section>
                     <LanguageCourse />
+                </section>
+                <section>
+                    <Othercourse />
+                </section>
+                <section>
+                    <Footer />
                 </section>
             </div>            
         )
