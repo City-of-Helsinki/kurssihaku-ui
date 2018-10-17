@@ -1,12 +1,11 @@
-@import "../../assets/variables";
-@import "../../assets/mixins";
+@import '../../assets/main.scss';
 
 section{
     .front-button{
         display: flex;
         justify-content: center;
-        padding-top: 40px;;
-        padding-bottom: 40px;
+        padding-top: 10px;;
+        padding-bottom: 60px;
     }
     .btn{
         padding: 15px 30px;
@@ -15,7 +14,7 @@ section{
     }
 
     h2{
-        padding: 30px;
+        padding: 30px 0 5px 30px;
     }
 }
 
@@ -55,7 +54,7 @@ section{
         }
         .search-icon{
             height: 50px;
-            width: 70px;
+            width: 50px;
             fill: white;
             transform: scaleX(-1);
         }
@@ -76,64 +75,114 @@ section{
             font-size: 0.9em;
             font-weight: 500;
         }
+
+        
     }   
+    @media (max-width: 576px){
+        .banner-content{
+            width: 80%;
+        p{
+            font-size: 1em;
+        }
+        }
+        
+    }
    
 }
 
 //css for front-page icons
-.icon-container{    
+.icon-container{  
+    position: relative;
     background-color: $hel-tram;
     width: 100%;
-    // &::before{
-    //     @include koro(basic, $green, 400);
-    // }
+    padding-top: 40px;   
+    &::before{
+        content: " ";
+        @include koro("basic", $hel-tram, 400);
+        width: 100%;
+        height: 2em;
+        position: absolute;
+        top: -1em;
+    }  
     
     .front-icons{        
         display: flex;
         justify-content: space-around;
     
-        img{
+        figure img{
              height: 80px;
         }
-        figcaption{
+        figure figcaption{
             color: white;
             font-weight: bold;
             font-size: 1.2em;
-            padding-top: 20px;;
+            padding-top: 20px;
+            text-align: center;
         }
     }   
+    @media (max-width: 576px){
+        .front-icons{
+            figure img{
+                height: 40px;
+            }
+            figure figcaption{
+                font-size: .7em;
+                padding-top: 10px;
+            }
+        }
+        
+    }
+
     
 }
 
 //css for language course
-.language-course-container{
-    padding: 20px;
+.language-course-row{
+    position: relative;   
+    
+    &::before{
+        content: " ";
+        @include koro("basic", #fff, 400);
+        width: 100%;
+        height: 1em;
+        position: absolute;
+        top: -1em;
+    }
 
-    .card{
-        background: $hel-light !important;
-        & img{
-            padding: 15px;
+    .language-course-container{
+        padding: 30px;
+        .card{
+            background: $hel-light !important;            
+            margin-bottom: 15px !important;
+            //margin-right:15px !important;
+            
+            & img{
+                padding: 15px;
+            }
         }
+        
+        .card-body{
+            //padding: 10px 10px 30px 10px;
+            text-align: center;
+        }
+        .card-subtitle{
+            color: $hel-tram;
+        }
+        .card-text{
+           color: $hel-tram;
+           font-size: 1.5em;
+           font-weight: bold;
+        }
+        .date{
+            font-size: 18px;
+            color: $black;
+            font-weight: normal;
+        }
+        .card-item{
+            padding-bottom: 20px;
+        }
+        
     }
-    .card-body{
-        padding: 10px 10px 30px 10px;
-        text-align: center;
-    }
-    .card-subtitle{
-        color: $hel-tram;
-    }
-    .card-text{
-       color: $hel-tram;
-       font-size: 1.5em;
-       font-weight: bold;
-    }
-    .date{
-        font-size: 18px;
-        color: $black;
-        font-weight: normal;
-    }
-    .card-item{
-        padding-bottom: 20px;
-    }
+
     
 }

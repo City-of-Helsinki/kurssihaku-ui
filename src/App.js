@@ -11,7 +11,6 @@ import Footer from './components/layout/footer'
 import fiMessages from './intl/translations/fi.json'
 import enMessages from './intl/translations/en.json'
 import svMessages from './intl/translations/sv.json'
-import './assets/main.scss'
 
 const translations = {
     'fi': fiMessages,

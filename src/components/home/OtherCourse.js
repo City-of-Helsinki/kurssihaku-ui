@@ -25,7 +25,7 @@ class OtherCourse extends Component {
     }
     render() {
         const courses = otherCourses.slice(0, this.state.itemsToShow).map((course, i)=>(
-            <Col xs="4" key={i} className="card-item">
+            <Col xs="12" sm="4" key={i} className="card-item">
                 <Card>
                     <CardImg top width="100%" src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97200&w=318&h=200" alt="Card image cap" />
                     <CardBody>
@@ -37,7 +37,7 @@ class OtherCourse extends Component {
             </Col>
         ))
         return (
-            <div>
+            <div className="language-course-row">
                 <h2>Vielä ehdit</h2>
                 <Row className="language-course-container"> 
                     {courses}
