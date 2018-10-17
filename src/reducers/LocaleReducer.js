@@ -1,5 +1,5 @@
 import {LOCALE_SET} from '../constants/constants'
-
+import {getMessages} from '../intl/getMessages'
 
 const defaultState = {
     lang: 'en',
@@ -12,6 +12,7 @@ export const LocaleReducer = (state = defaultState, action)=>{
             return {
                 ...state,
                 lang: action.lang,
+                messages: getMessages(action.lang),
             }
         default:
             return state;
