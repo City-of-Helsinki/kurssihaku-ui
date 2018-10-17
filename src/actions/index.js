@@ -9,3 +9,4 @@ export const setLocale = lang => dispatch =>{
     localStorage.allLang = lang
     dispatch(localeSet(lang))
 }
+

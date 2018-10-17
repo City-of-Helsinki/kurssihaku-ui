@@ -9,10 +9,11 @@ import {addLocaleData} from 'react-intl'
 import {localeSet} from './actions'
 import fi from 'react-intl/locale-data/fi'
 import en from 'react-intl/locale-data/en'
+import sv from 'react-intl/locale-data/sv'
 import thunk from 'redux-thunk'
 
-addLocaleData(en)
-addLocaleData(fi)
+
+addLocaleData([...en, ...fi, ...sv])
 
 const store = createStore(
     rootReducer,
