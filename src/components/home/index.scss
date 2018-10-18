@@ -150,11 +150,9 @@ section{
     }
 
     .language-course-container{
-        padding: 30px;
+        padding: 20px;
         .card{
-            background: $hel-light !important;            
-            margin-bottom: 15px !important;
-            //margin-right:15px !important;
+            background: $hel-light !important;           
             
             & img{
                 padding: 15px;
@@ -162,7 +160,6 @@ section{
         }
         
         .card-body{
-            //padding: 10px 10px 30px 10px;
             text-align: center;
         }
         .card-subtitle{
@@ -179,7 +176,11 @@ section{
             font-weight: normal;
         }
         .card-item{
-            padding-bottom: 20px;
+            padding: (1.25em/2) !important;
+        }
+
+        @media(max-width: 576px){
+            padding: 0px;
         }
         
     }
