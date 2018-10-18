@@ -1,9 +1,10 @@
 import React, {Component} from 'react'
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
-import Home from './components/home'
 import {IntlProvider} from 'react-intl'
 import {connect} from 'react-redux'
 import {Container} from 'reactstrap'
+import Home from './components/home'
+import SearchCourses from './components/search_courses'
 import PropTypes from 'prop-types'
 import Header from './components/layout/header'
 import MenuBar from './components/layout/navbar'
@@ -28,7 +29,8 @@ class App extends Component {
                         <Header />
                         <MenuBar />
                         <Switch>
-                            <Route path="/" exact component={Home} />
+                            <Route exact path="/" component={Home} />
+                            <Route exact path="/search-courses/" component={SearchCourses} />
                         </Switch>
                         <Footer />
                     </Container>
