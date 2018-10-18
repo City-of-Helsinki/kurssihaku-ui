@@ -1,12 +1,54 @@
 @import '../../assets/main.scss';
 
 .search-course-section{
-    
-    .banner{
-        padding: 2em;
-        background: $hel-light;
+
+    .jumbotron{
+        padding: 2rem;
         h1{
             color: $hel-tram;
         }
+        .search-inputs{
+            padding-top: 20px;
+            display: flex;
+            justify-content: space-between;
+
+            input{
+                border-bottom:2px solid $hel-tram;
+                &:focus{
+                    background: none;
+                }            
+            }
+
+            .react-select{
+                .css-2o5izw {
+                    border: 2px solid $hel-tram !important;
+                    box-shadow: none;
+                    border-color: 2px solid $hel-tram !important;
+                    background: none;
+                }
+
+                .css-vj8t7z{
+                    //border: none;
+                    border: 2px solid $hel-tram;
+                    background: none;
+                    outline: none;
+                }
+                .css-15k3avv:active{
+                    outline: none;
+                }
+                .css-1wy0on6 span{
+                    background: none;
+                }
+                .css-1ep9fjw svg{
+                    fill: $hel-tram;
+                }
+            }
+        }
+        .search-inputs > div{
+            flex-grow: 1;
+            padding: 10px;
+        }
     }
+    
+    
 }
