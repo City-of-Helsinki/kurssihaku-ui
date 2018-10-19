@@ -48,7 +48,7 @@ class OtherCourse extends Component {
                         outline
                         onClick={this.showMore} 
                         color="primary">
-                        {this.state.itemsToShow === otherCourses.length ? 'Show Less' : 'Lisää viime hetken vaihtoehtoja'}
+                        {this.state.itemsToShow >= otherCourses.length ? 'Show Less' : 'Lisää viime hetken vaihtoehtoja'}
                     </Button>
                 </div>
             </div>

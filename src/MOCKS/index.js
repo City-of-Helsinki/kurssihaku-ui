@@ -23,36 +23,6 @@ export const languageCourses = [
         startDate: 'start date',
         endDate: 'end date',
     },
-    {
-        title: 'title 5',
-        content: 'this is content area',
-        startDate: 'start date',
-        endDate: 'end date',
-    },
-    {
-        title: 'title 6',
-        content: 'this is content area',
-        startDate: 'start date',
-        endDate: 'end date',
-    },
-    {
-        title: 'title 7',
-        content: 'this is content area',
-        startDate: 'start date',
-        endDate: 'end date',
-    },
-    {
-        title: 'title 8',
-        content: 'this is content area',
-        startDate: 'start date',
-        endDate: 'end date',
-    },
-    {
-        title: 'title 9',
-        content: 'this is content area',
-        startDate: 'start date',
-        endDate: 'end date',
-    },
 ]
 
 export const otherCourses = [
@@ -92,24 +62,7 @@ export const otherCourses = [
         startDate: 'start date',
         endDate: 'end date',
     },
-    {
-        title: 'title 7',
-        content: 'this is content area',
-        startDate: 'start date',
-        endDate: 'end date',
-    },
-    {
-        title: 'title 8',
-        content: 'this is content area',
-        startDate: 'start date',
-        endDate: 'end date',
-    },
-    {
-        title: 'title 9',
-        content: 'this is content area',
-        startDate: 'start date',
-        endDate: 'end date',
-    },
+    
 ]
 
 export const options = [
@@ -117,3 +70,109 @@ export const options = [
     {value: 'strawberry', label: 'Strawberry'},
     {value: 'vanilla', label: 'Vanilla'},
 ];
+
+
+export const searchedCourses = [
+    {
+        title: 'Järjestäjä',
+        heading: 'Kurssin otsikkoteksti',
+        date: '15.5.2018 - 16.6.2018',
+        text: 'Ilmoittautuminen käynnissä  |  Vapaita paikkoja  |  Ilmainen',
+    },
+    {
+        title: 'Järjestäjä',
+        heading: 'Kurssin otsikkoteksti',
+        date: '15.5.2018 - 16.6.2018',
+        text: 'Ilmoittautuminen käynnissä  |  Vapaita paikkoja  |  Ilmainen',
+    },
+    {
+        title: 'Järjestäjä',
+        heading: 'Kurssin otsikkoteksti',
+        date: '15.5.2018 - 16.6.2018',
+        text: 'Ilmoittautuminen käynnissä  |  Vapaita paikkoja  |  Ilmainen',
+    },
+    {
+        title: 'Järjestäjä',
+        heading: 'Kurssin otsikkoteksti',
+        date: '15.5.2018 - 16.6.2018',
+        text: 'Ilmoittautuminen käynnissä  |  Vapaita paikkoja  |  Ilmainen',
+    },
+    {
+        title: 'Järjestäjä',
+        heading: 'Kurssin otsikkoteksti',
+        date: '15.5.2018 - 16.6.2018',
+        text: 'Ilmoittautuminen käynnissä  |  Vapaita paikkoja  |  Ilmainen',
+    },
+    {
+        title: 'Järjestäjä',
+        heading: 'Kurssin otsikkoteksti',
+        date: '15.5.2018 - 16.6.2018',
+        text: 'Ilmoittautuminen käynnissä  |  Vapaita paikkoja  |  Ilmainen',
+    },
+    {
+        title: 'Järjestäjä',
+        heading: 'Kurssin otsikkoteksti',
+        date: '15.5.2018 - 16.6.2018',
+        text: 'Ilmoittautuminen käynnissä  |  Vapaita paikkoja  |  Ilmainen',
+    },
+    {
+        title: 'Järjestäjä',
+        heading: 'Kurssin otsikkoteksti',
+        date: '15.5.2018 - 16.6.2018',
+        text: 'Ilmoittautuminen käynnissä  |  Vapaita paikkoja  |  Ilmainen',
+    },
+    {
+        title: 'Järjestäjä',
+        heading: 'Kurssin otsikkoteksti',
+        date: '15.5.2018 - 16.6.2018',
+        text: 'Ilmoittautuminen käynnissä  |  Vapaita paikkoja  |  Ilmainen',
+    },
+    {
+        title: 'Järjestäjä',
+        heading: 'Kurssin otsikkoteksti',
+        date: '15.5.2018 - 16.6.2018',
+        text: 'Ilmoittautuminen käynnissä  |  Vapaita paikkoja  |  Ilmainen',
+    },
+    {
+        title: 'Järjestäjä',
+        heading: 'Kurssin otsikkoteksti',
+        date: '15.5.2018 - 16.6.2018',
+        text: 'Ilmoittautuminen käynnissä  |  Vapaita paikkoja  |  Ilmainen',
+    },
+    {
+        title: 'Järjestäjä',
+        heading: 'Kurssin otsikkoteksti',
+        date: '15.5.2018 - 16.6.2018',
+        text: 'Ilmoittautuminen käynnissä  |  Vapaita paikkoja  |  Ilmainen',
+    },
+    {
+        title: 'Järjestäjä',
+        heading: 'Kurssin otsikkoteksti',
+        date: '15.5.2018 - 16.6.2018',
+        text: 'Ilmoittautuminen käynnissä  |  Vapaita paikkoja  |  Ilmainen',
+    },
+    {
+        title: 'Järjestäjä',
+        heading: 'Kurssin otsikkoteksti',
+        date: '15.5.2018 - 16.6.2018',
+        text: 'Ilmoittautuminen käynnissä  |  Vapaita paikkoja  |  Ilmainen',
+    },
+    {
+        title: 'Järjestäjä',
+        heading: 'Kurssin otsikkoteksti',
+        date: '15.5.2018 - 16.6.2018',
+        text: 'Ilmoittautuminen käynnissä  |  Vapaita paikkoja  |  Ilmainen',
+    },
+    {
+        title: 'Järjestäjä',
+        heading: 'Kurssin otsikkoteksti',
+        date: '15.5.2018 - 16.6.2018',
+        text: 'Ilmoittautuminen käynnissä  |  Vapaita paikkoja  |  Ilmainen',
+    },
+    {
+        title: 'Järjestäjä',
+        heading: 'Kurssin otsikkoteksti',
+        date: '15.5.2018 - 16.6.2018',
+        text: 'Ilmoittautuminen käynnissä  |  Vapaita paikkoja  |  Ilmainen',
+    },
+]

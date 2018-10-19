@@ -50,5 +50,22 @@
         }
     }
     
-    
+    .media-container{
+        padding: 2rem;
+
+        .media{
+            background: $hel-light;
+            padding: 20px;
+            margin-bottom: 20px !important;
+        }
+        .media-body{
+            padding-left: 40px;
+            span{
+                font-weight: bold;
+            }
+            h3, h4{
+                color: $hel-tram;
+            }
+        }
+    }
 }

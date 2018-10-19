@@ -9,21 +9,26 @@ class LanguageCourse extends Component {
         super(props);
         this.state = {
             itemsToShow: 3,
-            expanded: false,
         }
     }
 
     showMore = () => {
-        this.state.itemsToShow < languageCourses.length ? (
+        let addItem = 3 
+        const noOfItems = this.state.itemsToShow
+        noOfItems < languageCourses.length ? (
             this.setState({
-                itemsToShow: this.state.itemsToShow + 3,
-                expanded: true,
+                itemsToShow: noOfItems + addItem,
             })
         ) : (
-            this.setState({itemsToShow: 3, expanded: false})
+            this.setState({
+                itemsToShow: 3,
+            })
         )                 
     }
     render() {
+        console.log('languageCourses length', languageCourses.length);
+        console.log('state', this.state.itemsToShow);
+        
         const courses = languageCourses.slice(0, this.state.itemsToShow).map((course, i)=>(
             <Col xs="12" sm="4"  key={i} className="card-item">
                 <Card>
@@ -48,7 +53,7 @@ class LanguageCourse extends Component {
                         outline
                         onClick={this.showMore} 
                         color="primary">
-                        {this.state.itemsToShow === languageCourses.length ? 'Show Less' : 'Lisää kielikursseja'}
+                        {this.state.itemsToShow >= languageCourses.length ? 'Show Less' : 'Lisää kielikursseja'}
                     </Button>
                 </div>
             </div>
