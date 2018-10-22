@@ -8,8 +8,14 @@ import techIcon from '../../assets/icons/icon-tech@2x.png'
 import LanguageCourse from './LanguageCourse'
 import Othercourse from './OtherCourse'
 import './index.scss'
+import {getAllCourses} from '../../actions';
+import {connect} from 'react-redux';
 
 class FrontPage extends Component {
+
+    UNSAFE_componentWillMount(){
+        this.props.getAllCourses();
+    }
     
     render() {
        
@@ -75,4 +81,4 @@ class FrontPage extends Component {
 }
 
 
-export default FrontPage
+export default connect(null, {getAllCourses})(FrontPage)
