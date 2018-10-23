@@ -1,0 +1,10 @@
+
+
+@mixin jumbotron {
+    height: 17rem;
+    padding: 2rem;
+        h2{
+            color: $hel-tram;
+            padding: 0;
+        }
+}

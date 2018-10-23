@@ -1,0 +1,56 @@
+@import '../../assets/main.scss';
+
+.course-info-section{
+    .jumbotron{
+        @include jumbotron;
+        padding: 0px;
+        display: flex;
+        h2{
+            width: 50%;
+            line-height: 1;
+        }
+        & img{
+            height: 17rem;
+            width: 50%;
+            object-fit: cover;
+        }        
+    }
+
+    .course-info-left-content{
+        padding-left: 2rem;
+        h3, h5, .hash-tag, .globe, .kielet-text, .language-text{
+            color: $hel-tram;
+        }
+        h3{
+            font-weight: 500;
+        }
+        h5{
+            padding-bottom: 20px;
+            font-weight: 500;
+        }
+        .calendar-icon{
+            height: 30px;
+            width: 30px;
+        }
+        p{
+            font-size: 1em;
+            font-weight: 450;
+            padding-bottom: 20px;
+        }
+        .hash-tag{
+            font-weight: 600;
+        }
+        .globe{
+            margin-right: 10px;
+        }
+        .kielet-text{
+            font-weight: 600;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+        .language-text{
+            font-size: 1.1em;
+            font-weight: 500;
+        }
+    }
+}

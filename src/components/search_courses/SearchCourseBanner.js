@@ -20,7 +20,7 @@ export class SearchCourseBanner extends Component {
             <Row>
                 <Col xs="12">
                     <Jumbotron>
-                        <h1>Selaa Kursseja</h1>
+                        <h2>Selaa Kursseja</h2>
                         <div className="search-inputs">
                             <FormGroup>
                                 <Label>Hakuteksti</Label>

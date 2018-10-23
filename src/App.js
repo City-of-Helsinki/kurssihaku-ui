@@ -5,6 +5,7 @@ import {connect} from 'react-redux'
 import {Container} from 'reactstrap'
 import Home from './components/home'
 import SearchCourses from './components/search_courses'
+import CourseInfo from './components/course_info'
 import PropTypes from 'prop-types'
 import Header from './components/layout/header'
 import MenuBar from './components/layout/navbar'
@@ -31,6 +32,7 @@ class App extends Component {
                         <Switch>
                             <Route exact path="/" component={Home} />
                             <Route exact path="/search-courses/" component={SearchCourses} />
+                            <Route exact path="/course-info/" component={CourseInfo} />
                         </Switch>
                         <Footer />
                     </Container>

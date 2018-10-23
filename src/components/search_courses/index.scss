@@ -3,10 +3,7 @@
 .search-course-section{
 
     .jumbotron{
-        padding: 2rem;
-        h1{
-            color: $hel-tram;
-        }
+        @include jumbotron;
         .search-inputs{
             padding-top: 20px;
             display: flex;
