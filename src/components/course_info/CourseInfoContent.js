@@ -40,7 +40,7 @@ export class CourseInfoContent extends Component {
                         </div>                   
                         
                         <div className="info-container">
-                            <FontAwesomeIcon icon={faGlobeAmericas} size="1.5x" />
+                            <FontAwesomeIcon icon={faGlobeAmericas} />
                             <div>
                                 <h5>Verkosivut:</h5>
                                 <p className="link">www.guassi.fi/cityacquarelle</p>

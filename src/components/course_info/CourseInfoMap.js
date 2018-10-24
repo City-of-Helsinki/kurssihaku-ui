@@ -4,7 +4,7 @@ import {Row, Col} from 'reactstrap'
 export class CourseInfoMap extends Component {
     render() {
         return (
-            <Row xs ="12">
+            <Row>
                 <Col>
                     this section is for map
                 </Col>

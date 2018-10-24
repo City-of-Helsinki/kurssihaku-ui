@@ -26,9 +26,6 @@ class LanguageCourse extends Component {
         )                 
     }
     render() {
-        console.log('languageCourses length', languageCourses.length);
-        console.log('state', this.state.itemsToShow);
-        
         const courses = languageCourses.slice(0, this.state.itemsToShow).map((course, i)=>(
             <Col xs="12" sm="4"  key={i} className="card-item">
                 <Card>
