@@ -10,6 +10,7 @@ import Othercourse from './OtherCourse'
 import './index.scss'
 import {getAllCourses} from '../../actions';
 import {connect} from 'react-redux';
+import {CourseIconComponent} from './CourseIconComponent';
 
 class FrontPage extends Component {
 
@@ -42,22 +43,22 @@ class FrontPage extends Component {
                         <Col xs="12">
                             <div className="icon-container test">
                                 <div className="front-icons">
-                                    <figure>
-                                        <img src={sportIcon} alt="sport" />
-                                        <figcaption>LIIKUNTAA</figcaption>
-                                    </figure>
-                                    <figure>
-                                        <img src={langIcon} alt="language" />
-                                        <figcaption>KIELIÄ</figcaption>
-                                    </figure>
-                                    <figure>
-                                        <img src={artIcon} alt="art" />
-                                        <figcaption>TAIDETTA</figcaption>
-                                    </figure>
-                                    <figure>
-                                        <img src={techIcon} alt="tech" />
-                                        <figcaption>TEKNIKKAA</figcaption>
-                                    </figure>
+                                    <CourseIconComponent
+                                        src={sportIcon}
+                                        caption="LIIKUNTAA"
+                                    />
+                                    <CourseIconComponent
+                                        src={langIcon}
+                                        caption="KIELIÄ"
+                                    />
+                                    <CourseIconComponent
+                                        src={artIcon}
+                                        caption="TAIDETTA"
+                                    />
+                                    <CourseIconComponent
+                                        src={techIcon}
+                                        caption="TEKNIKKAA"
+                                    />
                                 </div>
                                 <div className="front-button">
                                     <Button outline color="light">                                        
