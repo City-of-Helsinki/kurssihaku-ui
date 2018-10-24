@@ -8,10 +8,9 @@ export class CourseInfoBanner extends Component {
             <Row>
                 <Col xs="12">
                     <Jumbotron>
-                        <div class="test">
-                            <h5>Jätkäsaaren Guassi</h5>
-                            <h2>Katuakvarellin jatko-kurssi edistyneille maalareille</h2>
-                        </div>
+                        <h5>Jätkäsaaren Guassi</h5>
+                        <h2>Katuakvarellin jatko-kurssi edistyneille maalareille</h2>
+                        
                         <img src={image} alt=""/>
                       
                     </Jumbotron>

@@ -1,6 +1,8 @@
 import React, {Component} from 'react'
 import {CourseInfoBanner} from './CourseInfoBanner';
 import {CourseInfoContent} from './CourseInfoContent';
+import {CourseInfoMap} from './CourseInfoMap';
+import {CourseInfoPic} from './CourseInfoPic';
 import './index.scss'
 
 export class CourseInfo extends Component {
@@ -13,6 +15,12 @@ export class CourseInfo extends Component {
                 <section>
                     <CourseInfoContent />
                 </section>
+                <section>
+                    <CourseInfoMap />
+                </section>
+                <section>
+                    <CourseInfoPic />
+                </section> 
             </div>
         )
     }

@@ -5,6 +5,7 @@
         @include jumbotron;
         padding: 0px;
         display: flex;
+        margin-bottom: 3rem !important;
         h2{
             width: 50%;
             line-height: 1;
@@ -51,6 +52,40 @@
         .language-text{
             font-size: 1.1em;
             font-weight: 500;
+        }
+    }
+
+    .course-info-right-content{
+        border: 1px solid black;
+        padding: 20px 20px 0 20px;
+        width: 60%;
+        float: right;
+        margin-right: 2rem !important;
+        margin-bottom: 20px !important;
+        .info-container{
+            display: flex;
+            padding-bottom: 20px;
+            h5, p{
+                padding-left: 10px;
+            }
+            .link{
+                color: $hel-tram;
+            }
+            .hinta p{
+                font-weight: bold;
+            }
+            .btn{
+                width: 100%;
+                background: none;
+                color: black;
+                border-color: black;
+            }
+            .circle{
+                color: $hel-tram;
+            }
+        }
+        & svg{
+            margin-top: 5px !important;
         }
     }
 }
