@@ -1,6 +1,9 @@
 import React, {Component} from 'react'
 import {Row, Col, Button, Input, InputGroup, InputGroupAddon} from 'reactstrap'
 import {ReactComponent  as SearchIcon} from 'hel-icons/dist/shapes/search.svg'
+import {getAllCourses} from '../../actions';
+import {connect} from 'react-redux';
+import {CourseIconComponent} from './CourseIconComponent';
 import sportIcon from '../../assets/icons/icon-sport@2x.png'
 import langIcon from '../../assets/icons/icon-lang@2x.png'
 import artIcon from '../../assets/icons/icon-art@2x.png'
@@ -8,9 +11,6 @@ import techIcon from '../../assets/icons/icon-tech@2x.png'
 import LanguageCourse from './LanguageCourse'
 import Othercourse from './OtherCourse'
 import './index.scss'
-import {getAllCourses} from '../../actions';
-import {connect} from 'react-redux';
-import {CourseIconComponent} from './CourseIconComponent';
 
 class FrontPage extends Component {
 
