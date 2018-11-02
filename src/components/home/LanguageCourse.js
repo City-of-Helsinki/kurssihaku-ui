@@ -3,6 +3,9 @@ import {Row, Col, Button,
     Card, CardImg, CardText, CardBody, CardSubtitle} from 'reactstrap'
 import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
+import moment from 'moment'
+import 'moment/locale/fi'
+import 'moment/locale/sv'
 
 
 class LanguageCourse extends Component {
@@ -44,7 +47,7 @@ class LanguageCourse extends Component {
                     <CardBody>
                         <CardSubtitle>{course.publisher}</CardSubtitle>
                         <CardText title={course.name['fi']}>{course.name['fi'].slice(0, 30) + '...'}</CardText>
-                        <CardText className="date">{course.start_time} - {course.end_time}</CardText>     
+                        <CardText className="date">{moment(course.start_time).locale(this.props.lang).format('l')} - {moment(course.end_time).locale(this.props.lang).format('l')}</CardText>     
                     </CardBody>
                 </Card>
             </Col>
@@ -76,6 +79,7 @@ LanguageCourse.propTypes = {
 const mapStateToProps = state =>{
     return{
         allCourses: state.courses.allCourses,
+        lang: state.locale.lang,
     }
 }
 
