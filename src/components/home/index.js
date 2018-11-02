@@ -4,6 +4,7 @@ import {ReactComponent  as SearchIcon} from 'hel-icons/dist/shapes/search.svg'
 import {getAllCourses} from '../../actions';
 import {connect} from 'react-redux';
 import {CourseIconComponent} from './CourseIconComponent';
+import PropTypes from 'prop-types'
 import sportIcon from '../../assets/icons/icon-sport@2x.png'
 import langIcon from '../../assets/icons/icon-lang@2x.png'
 import artIcon from '../../assets/icons/icon-art@2x.png'
@@ -79,6 +80,10 @@ class FrontPage extends Component {
             </div>            
         )
     }
+}
+
+FrontPage.propTypes = {
+    getAllCourses: PropTypes.func.isRequired,
 }
 
 
