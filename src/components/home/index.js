@@ -10,7 +10,7 @@ import langIcon from '../../assets/icons/icon-lang@2x.png'
 import artIcon from '../../assets/icons/icon-art@2x.png'
 import techIcon from '../../assets/icons/icon-tech@2x.png'
 import LanguageCourse from './LanguageCourse'
-import Othercourse from './OtherCourse'
+import EndingSoonCourse from './EndingSoonCourse'
 import './index.scss'
 
 class FrontPage extends Component {
@@ -20,7 +20,7 @@ class FrontPage extends Component {
     }
     
     render() {
-       
+        const {allCourses} = this.props;
         return (
             <div className="front-page">
                 <section>
@@ -72,10 +72,10 @@ class FrontPage extends Component {
                     </Row>
                 </section>
                 <section>
-                    <LanguageCourse />
+                    <LanguageCourse allCourses={allCourses} />
                 </section>
                 <section>
-                    <Othercourse />
+                    <EndingSoonCourse />
                 </section>
             </div>            
         )
@@ -84,7 +84,15 @@ class FrontPage extends Component {
 
 FrontPage.propTypes = {
     getAllCourses: PropTypes.func.isRequired,
+    allCourses: PropTypes.array.isRequired,
+
+}
+
+const mapStateToProps = state =>{
+    return{
+        allCourses: state.courses.allCourses,
+    }
 }
 
 
-export default connect(null, {getAllCourses})(FrontPage)
+export default connect(mapStateToProps, {getAllCourses})(FrontPage)
