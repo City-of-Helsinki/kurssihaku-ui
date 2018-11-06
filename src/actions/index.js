@@ -32,10 +32,9 @@ export const getAllCourses = () =>dispatch=>{
                 const page5Data = page5.data.data
 
                 const allData = page1Data.concat(page2Data).concat(page3Data).concat(page4Data).concat(page5Data)
-                const data = allData.filter(item=> item.keywords.find(el=>el['@id'] === 'https://linkedcourses-api.test.hel.ninja/linkedcourses-test/v1/keyword/yso:p2739/'))
                 dispatch({
                     type: GET_ALL_COURSES,
-                    payload: data,
+                    payload: allData,
                 })
             })
         ) 

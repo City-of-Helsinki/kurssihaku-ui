@@ -1,6 +1,7 @@
 import React from 'react'
 import {Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink} from 'reactstrap'
 import {FormattedMessage} from 'react-intl'
+import {Link} from 'react-router-dom'
 import './index.scss'
 
 class MenuBar extends React.Component {
@@ -24,7 +25,7 @@ class MenuBar extends React.Component {
                     <Collapse isOpen={this.state.isOpen} navbar>
                         <Nav className="mr-auto" navbar>
                             <NavItem>
-                                <NavLink href="#"><FormattedMessage id="app.browse.course" /></NavLink>
+                                <NavLink tag={Link} to="/search-courses"><FormattedMessage id="app.browse.course" /></NavLink>
                             </NavItem>
                             <NavItem>
                                 <NavLink href="#"><FormattedMessage id="app.knowledge.service" /></NavLink>

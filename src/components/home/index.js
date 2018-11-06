@@ -14,13 +14,32 @@ import EndingSoonCourse from './EndingSoonCourse'
 import './index.scss'
 
 class FrontPage extends Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            inputSearchCourse: '',
+        }
+    }
 
     UNSAFE_componentWillMount(){
         this.props.getAllCourses();
     }
+
+    handleInputChange = (e)=>{
+        this.setState({
+            inputSearchCourse: e.target.value,
+        })
+    }
+
+    handleInputSubmit = (e)=>{
+        e.preventDefault()
+        const searchCourseText = this.state.inputSearchCourse
+        const searchedCourse = this.props.allCourses.filter(course=>course.name['fi'].toLowerCase().includes(searchCourseText.toLowerCase()))
+        console.log(searchedCourse)
+    }   
     
     render() {
-        const {allCourses} = this.props;
+        const {allCourses} = this.props;        
         return (
             <div className="front-page">
                 <section>
@@ -30,10 +49,16 @@ class FrontPage extends Component {
                                 <div className="banner-content">
                                     <h1>Kurssihaku</h1>
                                     <p>Opi uutta ja verestä vanhoja taitoja ja tietoja. Tutustu helsinkiläiseen kurssitarjontaan.</p>
-                                    <InputGroup>
-                                        <InputGroupAddon addonType="prepend"><SearchIcon className="search-icon" /></InputGroupAddon>
-                                        <Input type="text" placeholder="Hae kursseja"/>
-                                    </InputGroup>
+                                    <form onSubmit={this.handleInputSubmit}>
+                                        <InputGroup>
+                                            <InputGroupAddon addonType="prepend"><SearchIcon className="search-icon" /></InputGroupAddon>
+                                            <Input
+                                                type="text"
+                                                value={this.state.inputSearchCourse}
+                                                onChange={this.handleInputChange} 
+                                                placeholder="Hae kursseja"/>
+                                        </InputGroup>
+                                    </form>
                                 </div>
                             </div>
                         </Col>
@@ -75,7 +100,7 @@ class FrontPage extends Component {
                     <LanguageCourse allCourses={allCourses} />
                 </section>
                 <section>
-                    <EndingSoonCourse />
+                    <EndingSoonCourse allCourses={allCourses} />
                 </section>
             </div>            
         )
@@ -90,7 +115,7 @@ FrontPage.propTypes = {
 
 const mapStateToProps = state =>{
     return{
-        allCourses: state.courses.allCourses,
+        allCourses: state.courses.allCourses.filter(item=> item.keywords.find(el=>el['@id'] === 'https://linkedcourses-api.test.hel.ninja/linkedcourses-test/v1/keyword/yso:p2739/')),
     }
 }
 

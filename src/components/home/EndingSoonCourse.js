@@ -9,11 +9,23 @@ import EndingCourse from '../course_card'
 
 class EndingSoonCourse extends Component {
     render() {
+        const endingCourses = this.props.allCourses.filter(course=>{
+            const currentDate = new Date();
+            const endDate = new Date(moment(course.extension_course.enrolment_end_time).format('l'));
+            const timeDiff = Math.abs(endDate.getTime() - currentDate.getTime());
+            const daysDiff = Math.ceil(timeDiff / (1000 * 3600 * 24));
+            if(daysDiff <= 7){
+                return true
+            } else{
+                return false
+            }
+        })
+        
         return  (
-            <div className="language-course-row"> {(this.props.endingCourses.length > 0) ?
+            <div className="language-course-row"> {(endingCourses.length > 0) ?
                 <div><h2>Vielä ehdit</h2>
                     <Row className="language-course-container"> 
-                        <EndingCourse data={this.props.endingCourses} />
+                        <EndingCourse data={endingCourses} />
                     </Row>
                     {/* <div className="front-button">                        
                         <Button
@@ -31,23 +43,12 @@ class EndingSoonCourse extends Component {
 
 EndingSoonCourse.propTypes = {
     lang: PropTypes.string.isRequired,
-    endingCourses: PropTypes.array.isRequired,
+    allCourses: PropTypes.array.isRequired,
 }
 
 const mapStateToProps = state =>{
     return{
         lang: state.locale.lang,
-        endingCourses: state.courses.allCourses.filter(course=>{
-            const currentDate = new Date();
-            const endDate = new Date(moment(course.extension_course.enrolment_end_time).format('l'));
-            const timeDiff = Math.abs(endDate.getTime() - currentDate.getTime());
-            const daysDiff = Math.ceil(timeDiff / (1000 * 3600 * 24));
-            if(daysDiff <= 7){
-                return true
-            } else{
-                return false
-            }
-        }),
 
     }
 }

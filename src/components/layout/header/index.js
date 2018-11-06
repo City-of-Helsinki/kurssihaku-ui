@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {ReactComponent  as HelsinkiLogo} from 'hel-icons/dist/shapes/helsinki-logo.svg'
+import {Link} from 'react-router-dom'
 import {ReactComponent  as Globe} from 'hel-icons/dist/shapes/globe.svg'
 import {ReactComponent  as User} from 'hel-icons/dist/shapes/user-o.svg'
 import {
@@ -45,7 +46,7 @@ class Header extends Component {
         return (
             <div className="header">
                 <Navbar color="faded" light expand="xs">
-                    <NavbarBrand href="/"><HelsinkiLogo className="helsinki-logo" /></NavbarBrand>
+                    <NavbarBrand tag={Link} to="/"><HelsinkiLogo className="helsinki-logo" /></NavbarBrand>
                     <Nav className="ml-auto nav-ul" navbar>
                         <UncontrolledDropdown nav inNavbar>
                                 

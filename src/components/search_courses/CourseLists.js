@@ -1,22 +1,35 @@
 import React, {Component} from 'react'
 import {Row, Col, Media} from 'reactstrap'
-import {searchedCourses} from '../../MOCKS'
+import {connect} from 'react-redux'
+import PropTypes from 'prop-types'
+import moment from 'moment'
+import 'moment/locale/fi'
+import 'moment/locale/sv'
 
 export class CourseLists extends Component {
+    
 
     render() {
-        const courses = searchedCourses.map((course, i)=>(
-            <Media key={i}>
+        const {allCourses} = this.props
+        
+        const courses = allCourses.map(course=>(
+            <Media key={course.id}>
                 <Media left href="#">
-                    <Media object src="https://placeholdit.imgix.net/~text?txtsize=15&txt=150x150&w=150&h=150" alt="Generic placeholder image" />
+                    {course.images.length > 0 ? course.images.map(image=>(
+                        <Media object
+                            key={image.id} 
+                            src={image.url} />
+
+                    )) : <Media object
+                        src='https://placeholdit.imgix.net/~text?txtsize=33&txt=image&w=318&h=200' />}
                 </Media>
                 <Media body>
                     <Media heading>
-                        {course.title}
+                        {course.publisher}
                     </Media>
-                    <h3>{course.heading}</h3>
-                    <span>{course.date}</span>
-                    <p>{course.text}</p>
+                    <h3>{course.name['fi'] || course.name['en']}</h3>
+                    <span>{moment(course.start_time).locale(this.props.lang).format('l')} - {moment(course.end_time).locale(this.props.lang).format('l')}</span>
+                    <p>{course.name['fi']}</p>
                 </Media>
             </Media>
         ))
@@ -32,4 +45,14 @@ export class CourseLists extends Component {
     }
 }
 
-export default CourseLists
+CourseLists.propTypes = {
+    lang: PropTypes.string.isRequired,
+}
+
+const mapStateToProps = state =>{
+    return{
+        lang: state.locale.lang,
+    }
+}
+
+export default connect(mapStateToProps)(CourseLists)

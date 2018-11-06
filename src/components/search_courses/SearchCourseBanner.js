@@ -8,6 +8,7 @@ export class SearchCourseBanner extends Component {
         super(props);
         this.state = {
             selectedOption: null,
+            searchInput: '',
         }
     }
 
@@ -15,7 +16,18 @@ export class SearchCourseBanner extends Component {
         this.setState({selectedOption});
         console.log(`Option selected:`, selectedOption);
     }
+    handleSearchInput = (e)=>{
+        this.setState({
+            searchInput: e.target.value,
+        })
+
+    }
     render() {
+        const {searchInput} = this.state
+        const {allCourses} = this.props
+        const searchedCourses = allCourses.filter(course=>(course.name['fi'] || course.name['en']).toLowerCase().indexOf(searchInput.toLowerCase()) !== -1)
+        console.log('searchedCourses', searchedCourses);
+        
         return (
             <Row>
                 <Col xs="12">
@@ -24,7 +36,11 @@ export class SearchCourseBanner extends Component {
                         <div className="search-inputs">
                             <FormGroup>
                                 <Label>Hakuteksti</Label>
-                                <Input type="text"  placeholder="Hae kurssin nimestä tai kuvauksesta" className="form-control" />
+                                <Input 
+                                    type="text"
+                                    value={this.state.searchInput}
+                                    onChange={this.handleSearchInput}
+                                    placeholder="Hae kurssin nimestä tai kuvauksesta" className="form-control" />
                             </FormGroup>
                             <div>
                                 <Label>Kurssin aihe</Label>
