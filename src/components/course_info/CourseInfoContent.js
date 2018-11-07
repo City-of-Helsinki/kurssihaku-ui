@@ -1,24 +1,43 @@
 import React, {Component} from 'react'
-import {Row, Col, Button} from 'reactstrap' 
+import {Row, Col, Button} from 'reactstrap'
 import {ReactComponent  as Calendar} from 'hel-icons/dist/shapes/calendar.svg'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faGlobeAmericas, faPencilAlt, faUsers,faCircle} from '@fortawesome/free-solid-svg-icons'
 import {faBuilding, faMoneyBillAlt} from '@fortawesome/free-regular-svg-icons'
-
+import moment from 'moment'
+import 'moment/locale/fi'
+import 'moment/locale/sv'
 
 export class CourseInfoContent extends Component {
+    constructor(props){
+        super(props)
+        this.state = {
+            course: {},
+            lang: '',
+        }
+
+    }
+    componentWillReceiveProps(nextProps) {
+        this.setState({course: nextProps.course, lang: nextProps.lang});          
+    }
+
     render() {
+        const {course, lang} = this.state
+        if(course.description){
+
+            console.log(course.description.fi)
+        }
         return (
             <Row>
                 <Col xs="6">
                     <div className="course-info-left-content">
-                        <h3><Calendar className="calendar-icon" />14.6 - 26.7.2018</h3>
+                        <h3><Calendar className="calendar-icon" />{moment(course.start_time).locale(lang).format('l')} - {moment(course.end_time).locale(lang).format('l')}</h3>
                         <h5>Yhteensä 7 kertaa (näytä kerrat)</h5>
                         <h5>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                            {course.short_description ? course.short_description['en'] || course.short_description['fi']  : ''}
                         </h5>
                         <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                            {course.description ? course.description['fi'] || course.description['en']  : ''}
                         </p>
                         <p className="hash-tag">
                             #taide #maalaus #kaupunkikulttuuri #akvarelli
@@ -35,7 +54,7 @@ export class CourseInfoContent extends Component {
                             <FontAwesomeIcon icon={faBuilding} />
                             <div>
                                 <h5>Järjestäjä:</h5>
-                                <p>Jätkäsaaren Guassi</p>
+                                <p>{course.publisher}</p>
                             </div>
                         </div>                   
                         
@@ -87,5 +106,6 @@ export class CourseInfoContent extends Component {
         )
     }
 }
+
 
 export default CourseInfoContent

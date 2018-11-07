@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import {Row, Col, Button, 
     Card, CardImg, CardText, CardBody, CardSubtitle} from 'reactstrap'
 import {connect} from 'react-redux'
+import {Link} from 'react-router-dom'
 import PropTypes from 'prop-types'
 import moment from 'moment'
 import 'moment/locale/fi'
@@ -31,28 +32,28 @@ class LanguageCourse extends Component {
         )                 
     }
 
-    handleCourseClick = ()=>{
-        console.log('clicked')
-    }
+    
     render() {
         const {data} = this.props;
         const courses = data.slice(0, this.state.itemsToShow).map(course=>(
             <Col xs="12" sm="4"  key={course.id} className="card-item">
-                <Card onClick={this.handleCourseClick}>
-                    {course.images.length > 0 ? course.images.map(image=>(
-                        <CardImg top width="100%" 
-                            src={image.url}
-                            key={image.id}
-                            alt="Card image cap" />
-                    )) : <CardImg top width="100%" 
-                        src={this.state.defaultImage}
-                        alt="Card image cap" />}
+                <Card>
+                    <Link to={`/course-info/${course.id}`}>
+                        {course.images.length > 0 ? course.images.map(image=>(
+                            <CardImg top width="100%" 
+                                src={image.url}
+                                key={image.id}
+                                alt="Card image cap" />
+                        )) : <CardImg top width="100%" 
+                            src={this.state.defaultImage}
+                            alt="Card image cap" />}
                    
-                    <CardBody>
-                        <CardSubtitle>{course.publisher}</CardSubtitle>
-                        <CardText title={course.name['fi']}>{course.name['fi'].slice(0, 30) + '...'}</CardText>
-                        <CardText className="date">{moment(course.start_time).locale(this.props.lang).format('l')} - {moment(course.end_time).locale(this.props.lang).format('l')}</CardText>     
-                    </CardBody>
+                        <CardBody>
+                            <CardSubtitle>{course.publisher}</CardSubtitle>
+                            <CardText title={course.name['fi']}>{course.name['fi'].slice(0, 30) + '...'}</CardText>
+                            <CardText className="date">{moment(course.start_time).locale(this.props.lang).format('l')} - {moment(course.end_time).locale(this.props.lang).format('l')}</CardText>     
+                        </CardBody>
+                    </Link>
                 </Card>
             </Col>
         ));
