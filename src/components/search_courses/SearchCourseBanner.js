@@ -2,6 +2,8 @@ import React, {Component} from 'react'
 import {Row, Col, Label, Input, Jumbotron, FormGroup} from 'reactstrap'
 import {options} from '../../MOCKS'
 import Select from 'react-select'
+import PropTypes from 'prop-types'
+
 
 export class SearchCourseBanner extends Component {
     constructor(props){
@@ -19,15 +21,12 @@ export class SearchCourseBanner extends Component {
     handleSearchInput = (e)=>{
         this.setState({
             searchInput: e.target.value,
-        })
+        }, ()=>{
+            this.props.getSearchInput(this.state.searchInput)
+        })        
 
     }
     render() {
-        const {searchInput} = this.state
-        const {allCourses} = this.props
-        const searchedCourses = allCourses.filter(course=>(course.name['fi'] || course.name['en']).toLowerCase().indexOf(searchInput.toLowerCase()) !== -1)
-        console.log('searchedCourses', searchedCourses);
-        
         return (
             <Row>
                 <Col xs="12">
@@ -66,6 +65,11 @@ export class SearchCourseBanner extends Component {
             </Row>
         )
     }
+}
+
+SearchCourseBanner.propTypes = {
+    getSearchInput: PropTypes.func.isRequired,
+
 }
 
 export default SearchCourseBanner

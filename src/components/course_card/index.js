@@ -30,11 +30,15 @@ class LanguageCourse extends Component {
             })
         )                 
     }
+
+    handleCourseClick = ()=>{
+        console.log('clicked')
+    }
     render() {
         const {data} = this.props;
         const courses = data.slice(0, this.state.itemsToShow).map(course=>(
             <Col xs="12" sm="4"  key={course.id} className="card-item">
-                <Card>
+                <Card onClick={this.handleCourseClick}>
                     {course.images.length > 0 ? course.images.map(image=>(
                         <CardImg top width="100%" 
                             src={image.url}

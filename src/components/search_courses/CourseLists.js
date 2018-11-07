@@ -10,9 +10,9 @@ export class CourseLists extends Component {
     
 
     render() {
-        const {allCourses} = this.props
+        const {searchedCourses} = this.props
         
-        const courses = allCourses.map(course=>(
+        const courses = searchedCourses.map(course=>(
             <Media key={course.id}>
                 <Media left href="#">
                     {course.images.length > 0 ? course.images.map(image=>(
@@ -47,6 +47,7 @@ export class CourseLists extends Component {
 
 CourseLists.propTypes = {
     lang: PropTypes.string.isRequired,
+    searchedCourses: PropTypes.array.isRequired,
 }
 
 const mapStateToProps = state =>{

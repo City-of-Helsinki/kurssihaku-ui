@@ -7,20 +7,34 @@ import PropTypes from 'prop-types'
 import './index.scss'
 
 class SearchCourses extends Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            inputValue: '',
+        }
+    }
 
     UNSAFE_componentWillMount(){
         this.props.getAllCourses();
     }
+
+    getSearchInput = (inputValue)=>{
+        this.setState({
+            inputValue,
+        })
+    }
     
     render() {
-        const {allCourses} = this.props       
+        const {inputValue} = this.state
+        const {allCourses} = this.props
+        const searchedCourses = allCourses.filter(course=>(course.name['fi'] || course.name['en']).toLowerCase().indexOf(inputValue.toLowerCase()) !== -1)
         return (
             <div className="search-course-section">
                 <section>
-                    <SearchCoursesBanner allCourses={allCourses} />
+                    <SearchCoursesBanner getSearchInput = {this.getSearchInput} />
                 </section>
                 <section>
-                    <CourseList allCourses={allCourses} />
+                    <CourseList searchedCourses={searchedCourses} />
                 </section>
             </div>
         )

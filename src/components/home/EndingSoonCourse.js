@@ -9,7 +9,7 @@ import EndingCourse from '../course_card'
 
 class EndingSoonCourse extends Component {
     render() {
-        const endingCourses = this.props.allCourses.filter(course=>{
+        const endingCourses = this.props.languageCourses.filter(course=>{
             const currentDate = new Date();
             const endDate = new Date(moment(course.extension_course.enrolment_end_time).format('l'));
             const timeDiff = Math.abs(endDate.getTime() - currentDate.getTime());
@@ -43,7 +43,7 @@ class EndingSoonCourse extends Component {
 
 EndingSoonCourse.propTypes = {
     lang: PropTypes.string.isRequired,
-    allCourses: PropTypes.array.isRequired,
+    languageCourses: PropTypes.array.isRequired,
 }
 
 const mapStateToProps = state =>{

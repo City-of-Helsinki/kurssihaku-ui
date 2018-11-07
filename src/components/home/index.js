@@ -4,6 +4,7 @@ import {ReactComponent  as SearchIcon} from 'hel-icons/dist/shapes/search.svg'
 import {getAllCourses} from '../../actions';
 import {connect} from 'react-redux';
 import {CourseIconComponent} from './CourseIconComponent';
+import {Redirect} from 'react-router-dom'
 import PropTypes from 'prop-types'
 import sportIcon from '../../assets/icons/icon-sport@2x.png'
 import langIcon from '../../assets/icons/icon-lang@2x.png'
@@ -34,12 +35,17 @@ class FrontPage extends Component {
     handleInputSubmit = (e)=>{
         e.preventDefault()
         const searchCourseText = this.state.inputSearchCourse
-        const searchedCourse = this.props.allCourses.filter(course=>course.name['fi'].toLowerCase().includes(searchCourseText.toLowerCase()))
-        console.log(searchedCourse)
+        const searchedCourses = this.props.allCourses.filter(course=>(course.name['fi'] || course.name['en']).toLowerCase().indexOf(searchCourseText.toLowerCase()) !== -1)
+        console.log(searchedCourses)
+        if(searchedCourses.length > 0){
+            return <Redirect to = "/search-courses" />
+        } else{
+            console.log('no course found')
+        }
     }   
     
     render() {
-        const {allCourses} = this.props;        
+        const {languageCourses} = this.props;        
         return (
             <div className="front-page">
                 <section>
@@ -97,10 +103,10 @@ class FrontPage extends Component {
                     </Row>
                 </section>
                 <section>
-                    <LanguageCourse allCourses={allCourses} />
+                    <LanguageCourse languageCourses={languageCourses} />
                 </section>
                 <section>
-                    <EndingSoonCourse allCourses={allCourses} />
+                    <EndingSoonCourse languageCourses={languageCourses} />
                 </section>
             </div>            
         )
@@ -109,13 +115,14 @@ class FrontPage extends Component {
 
 FrontPage.propTypes = {
     getAllCourses: PropTypes.func.isRequired,
-    allCourses: PropTypes.array.isRequired,
+    languageCourses: PropTypes.array.isRequired,
 
 }
 
 const mapStateToProps = state =>{
     return{
-        allCourses: state.courses.allCourses.filter(item=> item.keywords.find(el=>el['@id'] === 'https://linkedcourses-api.test.hel.ninja/linkedcourses-test/v1/keyword/yso:p2739/')),
+        languageCourses: state.courses.allCourses.filter(item=> item.keywords.find(el=>el['@id'] === 'https://linkedcourses-api.test.hel.ninja/linkedcourses-test/v1/keyword/yso:p2739/')),
+        allCourses: state.courses.allCourses,
     }
 }
 

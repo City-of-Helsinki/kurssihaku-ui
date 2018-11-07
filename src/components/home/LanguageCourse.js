@@ -11,7 +11,7 @@ class LanguageCourse extends Component {
             <div className="language-course-row">
                 <h2>Taidekursseja</h2>
                 <Row className="language-course-container"> 
-                    <LanguageCourseComponent data = {this.props.allCourses} />
+                    <LanguageCourseComponent data = {this.props.languageCourses} />
                 </Row>
             </div>
         )
