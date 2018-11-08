@@ -6,12 +6,23 @@ import moment from 'moment'
 import 'moment/locale/fi'
 import 'moment/locale/sv'
 
+
 export class CourseLists extends Component {
-    
+    constructor(props){
+        super(props);
+        this.state = {
+            searchedCourses: [],
+        }
+    }
+
+    componentWillReceiveProps(nextProps){
+        this.setState({
+            searchedCourses: nextProps.searchedCourses,
+        })
+    }
 
     render() {
-        const {searchedCourses} = this.props
-        
+        const {searchedCourses} = this.state
         const courses = searchedCourses.map(course=>(
             <Media key={course.id}>
                 <Media left href="#">
@@ -37,6 +48,7 @@ export class CourseLists extends Component {
             <Row>
                 <Col xs="12">
                     <div className="media-container">
+
                         {courses}
                     </div>                    
                 </Col>
