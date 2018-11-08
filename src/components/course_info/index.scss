@@ -53,6 +53,18 @@
             font-size: 1.1em;
             font-weight: 500;
         }
+        .course-time-info-container{
+            background-color: $hel-light;
+            .cross{
+               float: right;
+               padding: 10px 10px 0 0;
+            }
+            .course-time-info{
+                padding: 40px 0 20px 40px;
+                line-height: .5;
+            }
+        }
+        
     }
 
     .course-info-right-content{
@@ -80,8 +92,11 @@
                 color: black;
                 border-color: black;
             }
-            .circle{
+            .circleGreen{
                 color: $hel-tram;
+            }
+            .circleYellow{
+                color: yellow;
             }
         }
         & svg{
