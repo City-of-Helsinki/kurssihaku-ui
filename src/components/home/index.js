@@ -36,7 +36,6 @@ class FrontPage extends Component {
         e.preventDefault()
         const searchCourseText = this.state.inputSearchCourse
         const searchedCourses = this.props.allCourses.filter(course=>(course.name['fi'] || course.name['en']).toLowerCase().indexOf(searchCourseText.toLowerCase()) !== -1)
-        console.log(searchedCourses)
         if(searchedCourses.length > 0){
             return <Redirect to = "/search-courses" />
         } else{

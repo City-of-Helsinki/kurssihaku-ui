@@ -9,13 +9,26 @@ export class SearchCourseBanner extends Component {
     constructor(props){
         super(props);
         this.state = {
-            selectedOption: null,
+            selectedPublisherValue: null,
             searchInput: '',
+            selectPublisherValue: [],
         }
     }
 
-    handleChange = (selectedOption) => {
-        this.setState({selectedOption});
+    componentWillReceiveProps(nextProps){
+        const selectPublisherValue = nextProps.allCourses.map(course=> {return {label: course.publisher}})
+        const uniqueselectPublisherValue = selectPublisherValue.filter((value, index, self)=>
+            index === self.findIndex(t=>(
+                t.label === value.label && t.label === value.label
+            ))
+        )
+        this.setState({
+            selectPublisherValue: uniqueselectPublisherValue,
+        })        
+    }
+
+    handleSelectPublisher = (selectedOption) => {
+        this.setState({selectedPublisherValue:selectedOption});
         console.log(`Option selected:`, selectedOption);
     }
     handleSearchInput = (e)=>{
@@ -27,6 +40,7 @@ export class SearchCourseBanner extends Component {
 
     }
     render() {
+        
         return (
             <Row>
                 <Col xs="12">
@@ -53,9 +67,9 @@ export class SearchCourseBanner extends Component {
                             <div>
                                 <Label>Järjestäjä</Label>
                                 <Select
-                                    value={this.state.selectedOption}
-                                    onChange={this.handleChange}
-                                    options={options}
+                                    value={this.state.selectedPublisherValue}
+                                    onChange={this.handleSelectPublisher}
+                                    options={this.state.selectPublisherValue}
                                     className="react-select"
                                 />
                             </div>                                    

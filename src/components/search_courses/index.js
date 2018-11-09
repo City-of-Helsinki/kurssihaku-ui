@@ -31,7 +31,7 @@ class SearchCourses extends Component {
         return (
             <div className="search-course-section">
                 <section>
-                    <SearchCoursesBanner getSearchInput = {this.getSearchInput} />
+                    <SearchCoursesBanner getSearchInput = {this.getSearchInput} allCourses={allCourses} />
                 </section>
                 <section>
                     <CourseList searchedCourses={searchedCourses} />
