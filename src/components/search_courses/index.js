@@ -11,6 +11,7 @@ class SearchCourses extends Component {
         super(props);
         this.state = {
             inputValue: '',
+            publisherSelectedValue: '',
         }
     }
 
@@ -23,18 +24,31 @@ class SearchCourses extends Component {
             inputValue,
         })
     }
+
+    getPublisherInput = (publisherSelectedValue)=>{
+        this.setState({
+            publisherSelectedValue,
+        })
+    }
     
     render() {
-        const {inputValue} = this.state
+        
+        const {inputValue, publisherSelectedValue} = this.state
         const {allCourses} = this.props
-        const searchedCourses = allCourses.filter(course=>(course.name['fi'] || course.name['en']).toLowerCase().indexOf(inputValue.toLowerCase()) !== -1)
+        //search course by user input 
+        const searchByInput = allCourses.filter(course=>(course.name['fi'] || course.name['en']).toLowerCase().indexOf(inputValue.toLowerCase()) !== -1)
+        //search course by select publisher value
+            .filter(course=>course.publisher.indexOf(publisherSelectedValue) !== -1)
         return (
             <div className="search-course-section">
                 <section>
-                    <SearchCoursesBanner getSearchInput = {this.getSearchInput} allCourses={allCourses} />
+                    <SearchCoursesBanner 
+                        getSearchInput = {this.getSearchInput} 
+                        getPublisherInput = {this.getPublisherInput}
+                        allCourses={allCourses} />
                 </section>
                 <section>
-                    <CourseList searchedCourses={searchedCourses} />
+                    <CourseList searchByInput={searchByInput} />
                 </section>
             </div>
         )

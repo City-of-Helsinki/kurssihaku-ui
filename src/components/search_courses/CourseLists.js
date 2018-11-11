@@ -11,19 +11,19 @@ export class CourseLists extends Component {
     constructor(props){
         super(props);
         this.state = {
-            searchedCourses: [],
+            searchByInput: [],
         }
     }
 
     componentWillReceiveProps(nextProps){
         this.setState({
-            searchedCourses: nextProps.searchedCourses,
+            searchByInput: nextProps.searchByInput,
         })
     }
 
     render() {
-        const {searchedCourses} = this.state
-        const courses = searchedCourses.map(course=>(
+        const {searchByInput} = this.state
+        const courses = searchByInput.map(course=>(
             <Media key={course.id}>
                 <Media left href="#">
                     {course.images.length > 0 ? course.images.map(image=>(
@@ -59,7 +59,7 @@ export class CourseLists extends Component {
 
 CourseLists.propTypes = {
     lang: PropTypes.string.isRequired,
-    searchedCourses: PropTypes.array.isRequired,
+    searchByInput: PropTypes.array.isRequired,
 }
 
 const mapStateToProps = state =>{

@@ -14,7 +14,7 @@ export class SearchCourseBanner extends Component {
             selectPublisherValue: [],
         }
     }
-
+ 
     componentWillReceiveProps(nextProps){
         const selectPublisherValue = nextProps.allCourses.map(course=> {return {label: course.publisher}})
         const uniqueselectPublisherValue = selectPublisherValue.filter((value, index, self)=>
@@ -24,12 +24,12 @@ export class SearchCourseBanner extends Component {
         )
         this.setState({
             selectPublisherValue: uniqueselectPublisherValue,
-        })        
+        })    
     }
 
     handleSelectPublisher = (selectedOption) => {
         this.setState({selectedPublisherValue:selectedOption});
-        console.log(`Option selected:`, selectedOption);
+        this.props.getPublisherInput(selectedOption.label)
     }
     handleSearchInput = (e)=>{
         this.setState({
@@ -40,7 +40,6 @@ export class SearchCourseBanner extends Component {
 
     }
     render() {
-        
         return (
             <Row>
                 <Col xs="12">
@@ -83,6 +82,8 @@ export class SearchCourseBanner extends Component {
 
 SearchCourseBanner.propTypes = {
     getSearchInput: PropTypes.func.isRequired,
+    allCourses: PropTypes.array.isRequired,
+    getPublisherInput: PropTypes.func.isRequired,
 
 }
 
