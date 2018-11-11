@@ -24,8 +24,8 @@ class App extends Component {
     render() {
         const {lang} = this.props
         return (
-            <Router>
-                <IntlProvider locale={lang} messages={translations[lang]} >
+            <IntlProvider locale={lang} messages={translations[lang]} >
+                <Router>
                     <Container fluid>
                         <Header />
                         <MenuBar />
@@ -36,8 +36,8 @@ class App extends Component {
                         </Switch>
                         <Footer />
                     </Container>
-                </IntlProvider>
-            </Router>
+                </Router>
+            </IntlProvider>
         )
     }
 }
