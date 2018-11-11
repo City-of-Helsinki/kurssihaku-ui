@@ -30,3 +30,10 @@ h2{
 .col-12, .col-6{
     padding: 0 !important;
 }
+
+a:link{
+ text-decoration: none;
+}
+a:hover{
+    text-decoration: underline $hel-tram;
+}

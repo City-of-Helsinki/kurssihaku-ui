@@ -65,6 +65,10 @@
         }
         .media-body{
             padding-left: 40px;
+            span, p{
+
+                color: $hel-black;
+            }
             span{
                 font-weight: bold;
             }
