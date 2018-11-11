@@ -12,7 +12,6 @@ import en from 'react-intl/locale-data/en'
 import sv from 'react-intl/locale-data/sv'
 import thunk from 'redux-thunk'
 
-
 addLocaleData([...en, ...fi, ...sv])
 
 const store = createStore(

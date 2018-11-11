@@ -13,6 +13,8 @@ import Footer from './components/layout/footer'
 import fiMessages from './intl/translations/fi.json'
 import enMessages from './intl/translations/en.json'
 import svMessages from './intl/translations/sv.json'
+import ScrollToTop from './common/util/ScrollToTop'
+
 
 const translations = {
     'fi': fiMessages,
@@ -26,16 +28,18 @@ class App extends Component {
         return (
             <IntlProvider locale={lang} messages={translations[lang]} >
                 <Router>
-                    <Container fluid>
-                        <Header />
-                        <MenuBar />
-                        <Switch>
-                            <Route exact path="/" component={Home} />
-                            <Route exact path="/search-courses" component={SearchCourses} />
-                            <Route exact path="/course-info/:id" component={CourseInfo} />
-                        </Switch>
-                        <Footer />
-                    </Container>
+                    <ScrollToTop>
+                        <Container fluid>
+                            <Header />
+                            <MenuBar />
+                            <Switch>
+                                <Route exact path="/" component={Home} />
+                                <Route exact path="/search-courses" component={SearchCourses} />
+                                <Route exact path="/course-info/:id" component={CourseInfo} />
+                            </Switch>
+                            <Footer />
+                        </Container>
+                    </ScrollToTop>
                 </Router>
             </IntlProvider>
         )

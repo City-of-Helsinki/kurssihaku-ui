@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import {Row, Col, Media} from 'reactstrap'
 import {connect} from 'react-redux'
+import {Link} from 'react-router-dom'
 import PropTypes from 'prop-types'
 import moment from 'moment'
 import 'moment/locale/fi'
@@ -21,11 +22,12 @@ export class CourseLists extends Component {
         })
     }
 
+
     render() {
         const {searchByInput} = this.state
         const courses = searchByInput.map(course=>(
-            <Media key={course.id}>
-                <Media left href="#">
+            <Media key={course.id} tag={Link} to={`/course-info/${course.id}`} >
+                <Media left>
                     {course.images.length > 0 ? course.images.map(image=>(
                         <Media object
                             key={image.id} 
