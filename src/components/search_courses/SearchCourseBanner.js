@@ -9,9 +9,11 @@ export class SearchCourseBanner extends Component {
     constructor(props){
         super(props);
         this.state = {
-            selectedPublisherValue: null,
             searchInput: '',
+            selectedPublisherValue: null,
+            selectedCourseTopic: null,
             selectPublisherValue: [],
+            selectCourseTopic: [],
         }
     }
  
@@ -22,9 +24,15 @@ export class SearchCourseBanner extends Component {
                 t.label === value.label && t.label === value.label
             ))
         )
+        const selectCourseKeyword = nextProps.allCoursesKeyword.map(keyword=>{return {id: keyword.id, label: keyword.name[nextProps.lang]}})
+        const uniqueselectCourseTopic = selectCourseKeyword.filter((value, index, self)=>
+            index === self.findIndex(t=>(
+                t.label.toLowerCase() === value.label.toLowerCase() && t.label.toLowerCase() === value.label.toLowerCase()
+            ))
+        )
         this.setState({
             selectPublisherValue: uniqueselectPublisherValue,
-            // searchInput: nextProps.inputSearchCourse,
+            selectCourseTopic: uniqueselectCourseTopic,
 
         })    
     }
@@ -40,6 +48,9 @@ export class SearchCourseBanner extends Component {
             this.props.getSearchInput(this.state.searchInput)
         }) 
 
+    }
+    handleSelectCourseTopic = (selectedOption)=>{
+        console.log('s', selectedOption)
     }
     render() {
         return (
@@ -60,9 +71,9 @@ export class SearchCourseBanner extends Component {
                             <div>
                                 <Label>Kurssin aihe</Label>
                                 <Select
-                                    value={this.state.selectedOption}
-                                    onChange={this.handleChange}
-                                    options={options}
+                                    value={this.state.selectedCourseTopic}
+                                    onChange={this.handleSelectCourseTopic}
+                                    options={this.state.selectCourseTopic}
                                     className="react-select"
                                 />
                             </div>
