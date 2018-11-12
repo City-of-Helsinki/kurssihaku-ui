@@ -32,7 +32,7 @@ class SearchCourses extends Component {
     }
     
     render() {
-        
+        //const inputSearchCourse = this.props.location.state.inputSearchCourse
         const {inputValue, publisherSelectedValue} = this.state
         const {allCourses} = this.props
         //search course by user input 

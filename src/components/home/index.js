@@ -4,7 +4,6 @@ import {ReactComponent  as SearchIcon} from 'hel-icons/dist/shapes/search.svg'
 import {getAllCourses} from '../../actions';
 import {connect} from 'react-redux';
 import {CourseIconComponent} from './CourseIconComponent';
-import {Redirect} from 'react-router-dom'
 import PropTypes from 'prop-types'
 import sportIcon from '../../assets/icons/icon-sport@2x.png'
 import langIcon from '../../assets/icons/icon-lang@2x.png'
@@ -26,6 +25,8 @@ class FrontPage extends Component {
         this.props.getAllCourses();
     }
 
+    
+
     handleInputChange = (e)=>{
         this.setState({
             inputSearchCourse: e.target.value,
@@ -37,7 +38,7 @@ class FrontPage extends Component {
         const searchCourseText = this.state.inputSearchCourse
         const searchedCourses = this.props.allCourses.filter(course=>(course.name['fi'] || course.name['en']).toLowerCase().indexOf(searchCourseText.toLowerCase()) !== -1)
         if(searchedCourses.length > 0){
-            return <Redirect to = "/search-courses" />
+            this.props.history.push('/search-courses', {inputSearchCourse: this.state.inputSearchCourse})
         } else{
             console.log('no course found')
         }

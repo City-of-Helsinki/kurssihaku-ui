@@ -24,6 +24,8 @@ export class SearchCourseBanner extends Component {
         )
         this.setState({
             selectPublisherValue: uniqueselectPublisherValue,
+            // searchInput: nextProps.inputSearchCourse,
+
         })    
     }
 
@@ -36,7 +38,7 @@ export class SearchCourseBanner extends Component {
             searchInput: e.target.value,
         }, ()=>{
             this.props.getSearchInput(this.state.searchInput)
-        })        
+        }) 
 
     }
     render() {
@@ -52,7 +54,8 @@ export class SearchCourseBanner extends Component {
                                     type="text"
                                     value={this.state.searchInput}
                                     onChange={this.handleSearchInput}
-                                    placeholder="Hae kurssin nimestä tai kuvauksesta" className="form-control" />
+                                    placeholder="Hae kurssin nimestä tai kuvauksesta" 
+                                    className="form-control" />
                             </FormGroup>
                             <div>
                                 <Label>Kurssin aihe</Label>
