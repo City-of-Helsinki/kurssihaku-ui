@@ -7,4 +7,9 @@
             color: $hel-tram;
             padding: 0;
         }
+
+    @media(max-width: 576px){
+        height:auto;
+        padding: 1rem;
+    }
 }

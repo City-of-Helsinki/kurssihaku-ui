@@ -40,10 +40,16 @@
                     fill: $hel-tram;
                 }
             }
+           
         }
         .search-inputs > div{
             flex-grow: 1;
             padding: 10px;
+        }
+        @media(max-width:576px){
+            .search-inputs{
+                flex-direction: column;
+            }
         }
     }
     
@@ -75,6 +81,32 @@
             h3, h4{
                 color: $hel-tram;
             }
+        }
+
+        @media (max-width: 576px){
+            padding: 1rem;
+
+            .media{
+                padding: 8px;
+            }
+
+            .media-left{
+                & img{
+                    height: 80px;
+                    width: 80px;
+                    object-fit: cover;
+                }
+            }
+            .media-body{
+                padding-left: 15px;
+                h3{
+                    font-size: 20px;
+                }
+                h4, span{
+                    font-size: 10px;
+                }
+            }
+            
         }
     }
 }
