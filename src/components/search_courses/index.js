@@ -12,6 +12,7 @@ class SearchCourses extends Component {
         this.state = {
             inputValue: '',
             publisherSelectedValue: '',
+            courseTopicId: '',
         }
     }
 
@@ -31,15 +32,24 @@ class SearchCourses extends Component {
             publisherSelectedValue,
         })
     }
+
+    getCourseTopicId = (courseTopicId)=>{
+        this.setState({
+            courseTopicId,
+        })
+    }
     
     render() {
-        //const inputSearchCourse = this.props.location.state.inputSearchCourse
-        const {inputValue, publisherSelectedValue} = this.state
+        const {inputValue, publisherSelectedValue, courseTopicId} = this.state
         const {lang, allCourses, allCoursesKeyword} = this.props
+        
         //search course by user input 
-        const searchByInput = allCourses.filter(course=>(course.name['fi'] || course.name['en']).toLowerCase().indexOf(inputValue.toLowerCase()) !== -1)
+        const searchByInput = allCourses        
+            .filter(course=>(course.name['fi'] || course.name['en']).toLowerCase().indexOf(inputValue.toLowerCase()) !== -1)
         //search course by select publisher value
             .filter(course=>course.publisher.indexOf(publisherSelectedValue) !== -1)
+        //search course by topic
+        // .filter(course => course.keywords.find(item=>item['@id'].indexOf(`https://linkedcourses-api.test.hel.ninja/linkedcourses-test/v1/keyword/${courseTopicId}/`) !== -1))
         return (
             <div className="search-course-section">
                 <section>
@@ -47,6 +57,7 @@ class SearchCourses extends Component {
                         lang={lang}
                         getSearchInput = {this.getSearchInput} 
                         getPublisherInput = {this.getPublisherInput}
+                        getCourseTopicId = {this.getCourseTopicId}
                         allCourses={allCourses}
                         allCoursesKeyword={allCoursesKeyword} />
                 </section>

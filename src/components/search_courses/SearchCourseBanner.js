@@ -1,6 +1,5 @@
 import React, {Component} from 'react'
 import {Row, Col, Label, Input, Jumbotron, FormGroup} from 'reactstrap'
-import {options} from '../../MOCKS'
 import Select from 'react-select'
 import PropTypes from 'prop-types'
 
@@ -50,7 +49,10 @@ export class SearchCourseBanner extends Component {
 
     }
     handleSelectCourseTopic = (selectedOption)=>{
-        console.log('s', selectedOption)
+        this.setState({
+            selectedCourseTopic: selectedOption,
+        })
+        this.props.getCourseTopicId(selectedOption.id)
     }
     render() {
         return (
