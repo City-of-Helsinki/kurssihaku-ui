@@ -50,7 +50,7 @@ class LanguageCourse extends Component {
                    
                         <CardBody>
                             <CardSubtitle>{course.publisher}</CardSubtitle>
-                            <CardText title={course.name['fi']}>{course.name['fi'].slice(0, 30) + '...'}</CardText>
+                            <CardText title={course.name['fi']}>{course.name['fi'].length < 30 ? course.name['fi'] : course.name['fi'].substring(0, 30) + '...'}</CardText>
                             <CardText className="date">{moment(course.start_time).locale(this.props.lang).format('l')} - {moment(course.end_time).locale(this.props.lang).format('l')}</CardText>     
                         </CardBody>
                     </Link>

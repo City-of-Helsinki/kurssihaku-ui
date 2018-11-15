@@ -23,16 +23,17 @@ export class SearchCourseBanner extends Component {
                 t.label === value.label && t.label === value.label
             ))
         )
-        const selectCourseKeyword = nextProps.allCoursesKeyword.map(keyword=>{return {id: keyword.id, label: keyword.name[nextProps.lang]}})
+        const selectCourseKeyword = nextProps.allCoursesKeyword.map(keyword=>{return {id: keyword.id, label: keyword.name[nextProps.lang] || keyword.name['fi']}})
         const uniqueselectCourseTopic = selectCourseKeyword.filter((value, index, self)=>
             index === self.findIndex(t=>(
                 t.label.toLowerCase() === value.label.toLowerCase() && t.label.toLowerCase() === value.label.toLowerCase()
             ))
         )
+
         this.setState({
             selectPublisherValue: uniqueselectPublisherValue,
             selectCourseTopic: uniqueselectCourseTopic,
-
+            //searchInput: nextProps.homeInputText,
         })    
     }
 
@@ -55,6 +56,7 @@ export class SearchCourseBanner extends Component {
         this.props.getCourseTopicId(selectedOption.id)
     }
     render() {
+        console.log('home', this.props.homeInputText)
         return (
             <Row>
                 <Col xs="12">

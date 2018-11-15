@@ -23,9 +23,9 @@ class Footer extends Component {
                 <section>
                     <div className="info">
                         <span>Lähetä palautetta</span>
-                        <span>|</span>
+                        <span className="divider">|</span>
                         <span> Ota yhteyttä</span>
-                        <span>|</span>
+                        <span className="divider">|</span>
                         <span> 2018 Helsingin kaupunki</span>
                     </div>
                 </section>

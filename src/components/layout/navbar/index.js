@@ -21,11 +21,11 @@ class MenuBar extends React.Component {
             <div className="menu-bar">
                 <Navbar light expand="md">
                     <NavbarBrand href="#"><h5><FormattedMessage id="app.course.search" /></h5></NavbarBrand>
-                    <NavbarToggler onClick={this.toggle} />
+                    <NavbarToggler onClick={this.toggle} className="custom-toggler" />
                     <Collapse isOpen={this.state.isOpen} navbar>
                         <Nav className="mr-auto" navbar>
                             <NavItem>
-                                <NavLink tag={Link} to="/search-courses"><FormattedMessage id="app.browse.course" /></NavLink>
+                                <NavLink tag={Link} to="/search-courses" onClick={this.toggle}><FormattedMessage id="app.browse.course" /></NavLink>
                             </NavItem>
                             <NavItem>
                                 <NavLink href="#"><FormattedMessage id="app.knowledge.service" /></NavLink>
