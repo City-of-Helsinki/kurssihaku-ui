@@ -8,7 +8,7 @@ export class SearchCourseBanner extends Component {
     constructor(props){
         super(props);
         this.state = {
-            searchInput: '',
+            searchInput: props.homeInputText || '',
             selectedPublisherValue: null,
             selectedCourseTopic: null,
             selectPublisherValue: [],
@@ -33,13 +33,16 @@ export class SearchCourseBanner extends Component {
         this.setState({
             selectPublisherValue: uniqueselectPublisherValue,
             selectCourseTopic: uniqueselectCourseTopic,
-            //searchInput: nextProps.homeInputText,
         })    
+    }
+
+    componentDidMount() {
+        this.props.getSearchInput(this.state.searchInput)
     }
 
     handleSelectPublisher = (selectedOption) => {
         this.setState({selectedPublisherValue:selectedOption});
-        this.props.getPublisherInput(selectedOption.label)
+        this.props.getPublisherInput(selectedOption.label || '')
     }
     handleSearchInput = (e)=>{
         this.setState({
@@ -56,7 +59,6 @@ export class SearchCourseBanner extends Component {
         this.props.getCourseTopicId(selectedOption.id)
     }
     render() {
-        console.log('home', this.props.homeInputText)
         return (
             <Row>
                 <Col xs="12">

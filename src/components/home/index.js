@@ -38,7 +38,10 @@ class FrontPage extends Component {
         const searchCourseText = this.state.inputSearchCourse
         const searchedCourses = this.props.allCourses.filter(course=>(course.name['fi'] || course.name['en']).toLowerCase().indexOf(searchCourseText.toLowerCase()) !== -1)
         if(searchedCourses.length > 0){
-            this.props.history.push('/search-courses', {inputSearchCourse: this.state.inputSearchCourse})
+            this.props.history.push({
+                pathname: '/search-courses',
+                query: this.state.inputSearchCourse,
+            })
         } else{
             console.log('no course found')
         }
