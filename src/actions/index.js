@@ -1,9 +1,14 @@
 import {
     LOCALE_SET, 
+
+    LOADING,
+
     GET_ALL_COURSES, 
-    GET_ALL_COURSES_ERROR, 
+    GET_ALL_COURSES_ERROR,
+
     GET_ALL_COURSES_KEYWORD, 
-    GET_ALL_COURSES_KEYWORD_ERROR} from '../constants/constants'
+    GET_ALL_COURSES_KEYWORD_ERROR,
+} from '../constants/constants'
 import axios from 'axios'
 
 const linkedCourseBaseURL = 'https://linkedcourses-api.test.hel.ninja/linkedcourses-test/v1/event'
@@ -20,6 +25,7 @@ export const setLocale = lang => dispatch =>{
 }
 
 export const getAllCourses = () =>dispatch=>{
+    dispatch(loading())
     axios.all(
         [
             axios.get(linkedCourseBaseURL),
@@ -52,6 +58,7 @@ export const getAllCourses = () =>dispatch=>{
         })
 }
 export const getCoursesKeyword = ()=>dispatch=>{
+    dispatch(loading())
     axios.all(
         [
             axios.get(courseKeywordBaseURL),
@@ -80,4 +87,12 @@ export const getCoursesKeyword = ()=>dispatch=>{
                 payload: err,
             })
         })
+}
+
+
+//while content loading
+export const loading = () =>{
+    return {
+        type: LOADING,
+    }
 }

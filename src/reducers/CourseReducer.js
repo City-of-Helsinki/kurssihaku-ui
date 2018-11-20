@@ -1,4 +1,4 @@
-import {GET_ALL_COURSES, GET_ALL_COURSES_ERROR, GET_ALL_COURSES_KEYWORD, GET_ALL_COURSES_KEYWORD_ERROR} from '../constants/constants'
+import {GET_ALL_COURSES, GET_ALL_COURSES_ERROR, LOADING} from '../constants/constants'
 
 const defaultState = {
     allCourses: [],
@@ -12,6 +12,11 @@ const defaultState = {
 
 export const CourseReducer = (state = defaultState, action)=>{
     switch(action.type){
+        case LOADING:
+            return {
+                ...state,
+                allCoursesLoading: true,
+            }
         case GET_ALL_COURSES:
             return {
                 ...state,
@@ -24,19 +29,6 @@ export const CourseReducer = (state = defaultState, action)=>{
                 ...state,
                 allCoursesError: action.payload,
                 allCoursesLoading: false,
-            }
-        case GET_ALL_COURSES_KEYWORD:
-            return {
-                ...state,
-                allCoursesKeyword: action.payload, 
-                allCoursesKeywordError: null,
-                allCoursesKeywordLoading: false,
-            }
-        case GET_ALL_COURSES_KEYWORD_ERROR:
-            return {
-                ...state,
-                allCoursesKeywordError: action.payload,
-                allCoursesKeywordLoading: false,
             }
         default:
             return state;
