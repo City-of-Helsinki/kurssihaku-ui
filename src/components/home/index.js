@@ -18,6 +18,7 @@ class FrontPage extends Component {
         super(props);
         this.state = {
             inputSearchCourse: '',
+            error: null,
         }
     }
 
@@ -43,7 +44,9 @@ class FrontPage extends Component {
                 query: this.state.inputSearchCourse,
             })
         } else{
-            console.log('no course found')
+            this.setState({
+                error: 'No course Found',
+            })
         }
     }   
     
@@ -68,6 +71,7 @@ class FrontPage extends Component {
                                                 placeholder="Hae kursseja"/>
                                         </InputGroup>
                                     </form>
+                                    { this.state.error ? <span style={{color: 'white'}}>{this.state.error}</span> : '' }
                                 </div>
                             </div>
                         </Col>
