@@ -11,7 +11,7 @@ export class CourseInfoBanner extends Component {
                         <h5>Jätkäsaaren Guassi</h5>
                         <h2>Katuakvarellin jatko-kurssi edistyneille maalareille</h2>
                         
-                        <img src={image} alt=""/>
+                        {/* <img src={image} alt=""/> */}
                       
                     </Jumbotron>
                 </Col>

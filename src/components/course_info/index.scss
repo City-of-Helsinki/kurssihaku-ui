@@ -14,7 +14,14 @@
             height: 17rem;
             width: 50%;
             object-fit: cover;
-        }        
+        }    
+        
+        
+    }
+    @media(max-width: 576px){
+        .jumbotron{
+            display: block;
+        }
     }
 
     .course-info-left-content{
