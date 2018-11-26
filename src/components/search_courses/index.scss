@@ -1,7 +1,7 @@
 @import '../../assets/main.scss';
 
 .search-course-section{
-
+    
     .jumbotron{
         @include jumbotron;
         .search-inputs{
@@ -55,7 +55,7 @@
     
     .media-container{
         padding: 2rem;
-
+       
         .media{
             background: $hel-light;
             padding: 20px;
@@ -107,6 +107,10 @@
                 }
             }
             
+        }
+        @media(min-width:1400px){
+            width: 70%;
+            margin: 0 auto !important;
         }
     }
 }

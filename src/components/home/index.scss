@@ -139,7 +139,14 @@ section{
 
 //css for language course
 .language-course-row{
-    position: relative;   
+    position: relative; 
+    
+    .language-course-content{
+        @media(min-width: 1400px){
+            width: 80%;
+            margin: 0 auto !important;
+        }
+    }
     
     &::before{
         content: " ";
@@ -184,8 +191,11 @@ section{
         @media(max-width: 576px){
             padding: 0px;
         }
+
+       
         
     }
+    
 
     
 }

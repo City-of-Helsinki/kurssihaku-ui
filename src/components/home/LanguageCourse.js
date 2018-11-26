@@ -10,11 +10,13 @@ class LanguageCourse extends Component {
     render() {
         return (
             <div className="language-course-row">
-                <h2>Taidekursseja</h2>
-                {this.props.loading ? <Loader /> : 
-                    <Row className="language-course-container"> 
-                        <LanguageCourseComponent data = {this.props.languageCourses} />
-                    </Row> }
+                <div className="language-course-content">
+                    <h2>Taidekursseja</h2>
+                    {this.props.loading ? <Loader /> : 
+                        <Row className="language-course-container"> 
+                            <LanguageCourseComponent data = {this.props.languageCourses} />
+                        </Row> }
+                </div>
             </div>
         )
     }
