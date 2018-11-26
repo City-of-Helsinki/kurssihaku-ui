@@ -51,7 +51,7 @@ export class CourseInfoContent extends Component {
         
         
         return (
-            <Row>
+            <Row className="course-info-content">
                 <Col xs="12" sm="6">
                     <div className="course-info-left-content">
                         <h3><Calendar className="calendar-icon" />{moment(course.start_time).locale(lang).format('l')} - {moment(course.end_time).locale(lang).format('l')}</h3>

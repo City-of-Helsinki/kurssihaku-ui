@@ -5,7 +5,7 @@ export class CourseInfoInterestCourse extends Component {
     render() {
         return (
             <div className="interest-course-row">
-                <div>
+                <div className="interest-course-container">
                     <h2>Sinua saattaa kiinnostaa myös</h2>
                 </div>
                 <Row className="interest-course-container">

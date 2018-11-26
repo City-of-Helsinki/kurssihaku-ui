@@ -204,5 +204,12 @@
             padding: (1.25em/2) !important;
         }
     }
+
+    .course-info-content, .course-info-pic-container, .interest-course-container{
+        @media(min-width: 1400px){
+            width: 70%;
+            margin: 0 auto !important;
+        }
+    }
     
 }

@@ -14,7 +14,7 @@ class EndingSoonCourse extends Component {
             const endDate = new Date(moment(course.extension_course.enrolment_end_time).format('l'));
             const timeDiff = Math.abs(endDate.getTime() - currentDate.getTime());
             const daysDiff = Math.ceil(timeDiff / (1000 * 3600 * 24));
-            if(daysDiff <= 7){
+            if(daysDiff >= 7){
                 return true
             } else{
                 return false
@@ -23,7 +23,8 @@ class EndingSoonCourse extends Component {
         
         return  (
             <div className="language-course-row"> {(endingCourses.length > 0) ?
-                <div><h2>Vielä ehdit</h2>
+                <div className="language-course-content">
+                    <h2>Vielä ehdit</h2>
                     <Row className="language-course-container"> 
                         <EndingCourse data={endingCourses} />
                     </Row>
