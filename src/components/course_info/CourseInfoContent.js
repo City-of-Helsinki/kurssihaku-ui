@@ -97,7 +97,11 @@ export class CourseInfoContent extends Component {
                             <FontAwesomeIcon icon={faGlobeAmericas} />
                             <div>
                                 <h5>Verkosivut:</h5>
-                                <p className="link">www.guassi.fi/cityacquarelle</p>
+                                <p className="link" title={course.info_url && (course.info_url[lang] || course.info_url['fi'])}>
+                                    <a href={course.info_url && (course.info_url[lang] || course.info_url['fi'])} target="_blank" rel="noopener noreferrer">
+                                        {course.info_url && (course.info_url[lang].substring(0, 40) + '...' || course.info_url['fi'].substring(0, 40) + '...')}
+                                    </a>
+                                </p>
 
                             </div>
                         </div>
