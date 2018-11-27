@@ -21,6 +21,9 @@ export class CourseLists extends Component {
             searchByInput: nextProps.searchByInput,
         })
     }
+    componentDidMount() {
+        window.scrollTo(0, 0);
+    }
 
 
     render() {
