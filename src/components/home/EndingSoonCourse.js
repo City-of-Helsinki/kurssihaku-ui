@@ -14,7 +14,7 @@ class EndingSoonCourse extends Component {
             const endDate = new Date(moment(course.extension_course.enrolment_end_time).format('l'));
             const timeDiff = Math.abs(endDate.getTime() - currentDate.getTime());
             const daysDiff = Math.ceil(timeDiff / (1000 * 3600 * 24));
-            if(daysDiff >= 7){
+            if(daysDiff <= 7){
                 return true
             } else{
                 return false

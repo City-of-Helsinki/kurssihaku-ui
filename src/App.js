@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
+import {BrowserRouter as Router, Switch, Route, Redirect} from 'react-router-dom'
 import {IntlProvider} from 'react-intl'
 import {connect} from 'react-redux'
 import {Container} from 'reactstrap'
@@ -36,6 +36,7 @@ class App extends Component {
                                 <Route exact path="/" component={Home} />
                                 <Route exact path="/search-courses" component={SearchCourses} />
                                 <Route exact path="/course-info/:id" component={CourseInfo} />
+                                <Redirect to={{pathname:'/'}} />
                             </Switch>
                             <Footer />
                         </Container>
