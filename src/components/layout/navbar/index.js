@@ -9,7 +9,26 @@ class MenuBar extends React.Component {
         super(props);
         this.state = {
             isOpen: false,
+            navStick: false,
         };
+    }
+
+    componentDidMount(){
+        window.addEventListener('scroll', this.handleScroll);
+    }
+    componentWillUnmount() {
+        window.removeEventListener('scroll', this.handleScroll);
+    }
+    handleScroll = () =>{
+        if(window.scrollY > 65){
+            this.setState({
+                navStick: true,
+            })
+        } else if(window.scrollY < 60){
+            this.setState({
+                navStick: false,
+            })
+        }
     }
     toggle = ()=> {
         this.setState({
@@ -18,9 +37,9 @@ class MenuBar extends React.Component {
     }
     render() {
         return (
-            <div className="menu-bar">
+            <div className={`menu-bar ${this.state.navStick ? 'fixed-top' : ''}`}>
                 <Navbar light expand="md">
-                    <NavbarBrand href="#"><h5><FormattedMessage id="app.course.search" /></h5></NavbarBrand>
+                    <NavbarBrand tag={Link} to="/" href="#"><h5><FormattedMessage id="app.course.search" /></h5></NavbarBrand>
                     <NavbarToggler onClick={this.toggle} className="custom-toggler" />
                     <Collapse isOpen={this.state.isOpen} navbar>
                         <Nav className="mr-auto" navbar>
