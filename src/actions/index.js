@@ -33,17 +33,19 @@ export const getAllCourses = () =>dispatch=>{
             axios.get(linkedCourseBaseURL + '/?page=3'),
             axios.get(linkedCourseBaseURL + '/?page=4'),
             axios.get(linkedCourseBaseURL + '/?page=5'),
+            axios.get(linkedCourseBaseURL + '/?page=6'),
         ]
     )    
         .then(
-            axios.spread((page1, page2, page3, page4, page5)=>{
+            axios.spread((page1, page2, page3, page4, page5, page6)=>{
                 const page1Data = page1.data.data
                 const page2Data = page2.data.data
                 const page3Data = page3.data.data
                 const page4Data = page4.data.data
                 const page5Data = page5.data.data
+                const page6Data = page6.data.data
 
-                const allData = page1Data.concat(page2Data).concat(page3Data).concat(page4Data).concat(page5Data)
+                const allData = page1Data.concat(page2Data).concat(page3Data).concat(page4Data).concat(page5Data).concat(page6Data)
                 dispatch({
                     type: GET_ALL_COURSES,
                     payload: allData,

@@ -17,13 +17,18 @@ export class CourseInfo extends Component {
         const {allCourses, courseKeywords} = this.props
         const courseId = this.props.match.params.id
         const course = allCourses.filter(course => course.id === courseId)[0]
+        const searchKey = this.props.location.search;
         return (
             <div className="course-info-section">
                 <section>
                     <CourseInfoBanner />
                 </section>
                 <section>
-                    <CourseInfoContent course={course} lang={this.props.lang} courseKeywords = {courseKeywords} />
+                    <CourseInfoContent 
+                        course={course} 
+                        lang={this.props.lang} 
+                        courseKeywords = {courseKeywords} 
+                    />
                 </section>
                 <section>
                     <CourseInfoMap />
@@ -32,7 +37,12 @@ export class CourseInfo extends Component {
                     <CourseInfoPic />
                 </section> 
                 <section>
-                    <CourseInfoInterestCourse />
+                    <CourseInfoInterestCourse 
+                        lang={this.props.lang} 
+                        searchKey = {searchKey} 
+                        course = {course} 
+                        allCourses = {allCourses}
+                    />
                 </section>
             </div>
         )
