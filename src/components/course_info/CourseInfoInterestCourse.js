@@ -25,7 +25,6 @@ export class CourseInfoInterestCourse extends Component {
                         <CardBody>
                             <CardSubtitle>{course.publisher}</CardSubtitle>
                             <CardText>{course.name['en'] || course.name['fi']}</CardText>
-                            {/* <CardText>{(course.name['en'].length < 30 ? course.name['en'] : course.name['en'].substring(0, 30) + '...') || (course.name['fi'].length < 30 ? course.name['fi'] : course.name['fi'].substring(0, 30) + '...')}</CardText> */}
                             <CardText className="date">{moment(course && course.start_time).locale(this.props.lang).format('l')} - {moment(course && course.end_time).locale(this.props.lang).format('l')}</CardText>     
                         </CardBody>
                     </Link>

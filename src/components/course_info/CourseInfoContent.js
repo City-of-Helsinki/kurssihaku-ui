@@ -40,14 +40,8 @@ export class CourseInfoContent extends Component {
 
     render() {
         const {course, lang, courseKeywords} = this.state
-        //const keyword = courseKeyWords.filer(item=>item['@id'] == course.keywords.some(item =>))
-        // console.log('courseKeyWords', courseKeywords);
-        // console.log(this.props);
-
         const courseFromKeyword = courseKeywords.filter(item1 => course.keywords.some(item2 => item2['@id'] === item1['@id']))
-           
-        console.log('course', course);
-        
+                  
         
         return (
             <Row className="course-info-content">
