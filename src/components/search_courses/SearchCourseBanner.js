@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import {Row, Col, Label, Input, Jumbotron, FormGroup} from 'reactstrap'
 import Select from 'react-select'
 import PropTypes from 'prop-types'
+import _ from 'lodash';
 
 
 export class SearchCourseBanner extends Component {
@@ -18,18 +19,11 @@ export class SearchCourseBanner extends Component {
  
     componentWillReceiveProps(nextProps){
         const selectPublisherValue = nextProps.allCourses.map(course=> {return {label: course.publisher}})
-        const uniqueselectPublisherValue = selectPublisherValue.filter((value, index, self)=>
-            index === self.findIndex(t=>(
-                t.label === value.label && t.label === value.label
-            ))
-        )
-        const selectCourseKeyword = nextProps.allCoursesKeyword.map(keyword=>{return {id: keyword.id, label: keyword.name[nextProps.lang] || keyword.name['fi']}})
-        const uniqueselectCourseTopic = selectCourseKeyword.filter((value, index, self)=>
-            index === self.findIndex(t=>(
-                t.label.toLowerCase() === value.label.toLowerCase() && t.label.toLowerCase() === value.label.toLowerCase()
-            ))
-        )
-
+        const uniqueselectPublisherValue = _.uniqBy(selectPublisherValue, 'label')
+        
+        const selectCourseKeyword = nextProps.allCoursesKeyword.map(keyword=>{return {id: keyword.id, label: keyword.name[nextProps.lang] || keyword.name['fi']}})       
+        const uniqueselectCourseTopic = _.uniqBy(selectCourseKeyword, 'label')
+            
         this.setState({
             selectPublisherValue: uniqueselectPublisherValue,
             selectCourseTopic: uniqueselectCourseTopic,
