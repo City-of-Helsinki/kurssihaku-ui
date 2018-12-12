@@ -1,27 +1,78 @@
 @import '../../assets/main.scss';
 
 .course-info-section{
+    .banner-col{
+        z-index: -1;
+        overflow: hidden;
+    }
     .jumbotron{
         @include jumbotron;
         padding: 0px;
         display: flex;
-        margin-bottom: 3rem !important;
-        h2{
-            width: 50%;
-            line-height: 1;
+        .title{
+            z-index: 1;
+            padding: 2em 0 0 2em;
+            width: 40%;
+            h5{
+                color: $hel-tram;
+                padding-bottom: 1rem;
+            }
+            h2{
+                line-height: 0.9;
+                font-size: 50px;
+            }
         }
         & img{
             height: 17rem;
-            width: 50%;
+            width: 60%;
             object-fit: cover;
         }    
+        &::after{
+            content: " ";
+            @include koro("pulse", $hel-light, 250);
+            width: 32%;
+            height: 3000px;
+            position: absolute;
+            transform-origin: top right;
+            transform: rotate(90deg) translate(100%) skew(0deg, 45deg); 
+        }
         
         
     }
     @media(max-width: 576px){
         .jumbotron{
-            display: block;
+            padding: inherit;
+            &::after{
+                display: none;
+            }
+            & img{
+                height: 17rem;
+                width: 100%;
+                object-fit: cover;
+            } 
+            &:before{
+                content: "";
+                position: absolute;
+                left: 0; right: 0;
+                top: 0; bottom: 0;
+                background: rgba(3, 41, 21, 0.5);
+            }
+            .title{
+                position: absolute;
+                width: 100%;
+                h2, h5{
+                    color: $hel-light;
+                }
+                h2{
+                    font-size: 2rem;
+                    text-align: left;
+                }
+            }
         }
+    }
+
+    .course-info-content{
+        margin-top: 3rem !important;
     }
 
     .course-info-left-content{

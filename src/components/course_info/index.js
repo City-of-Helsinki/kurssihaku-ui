@@ -21,7 +21,7 @@ export class CourseInfo extends Component {
         return (
             <div className="course-info-section">
                 <section>
-                    <CourseInfoBanner />
+                    <CourseInfoBanner course={course} />
                 </section>
                 <section>
                     <CourseInfoContent 
