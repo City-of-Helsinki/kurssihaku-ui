@@ -188,6 +188,17 @@
         }
     }
 
+    .map-section{
+        padding: 2rem;
+        .map-container, .address-container{
+            height: 300px;
+        }
+        .address-container{
+            background: silver;
+            padding: 20px;
+        }
+    }
+
     .course-info-pic-container{
         padding: 2rem;
         h4{
@@ -257,7 +268,7 @@
         }
     }
 
-    .course-info-content, .course-info-pic-container, .interest-course-container{
+    .course-info-content, .course-info-pic-container, .interest-course-container, .map-section{
         @media(min-width: 1400px){
             width: 70%;
             margin: 0 auto !important;

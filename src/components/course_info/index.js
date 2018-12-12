@@ -31,7 +31,7 @@ export class CourseInfo extends Component {
                     />
                 </section>
                 <section>
-                    <CourseInfoMap />
+                    <CourseInfoMap course={course} />
                 </section>
                 <section>
                     <CourseInfoPic />
