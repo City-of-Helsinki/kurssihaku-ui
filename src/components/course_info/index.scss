@@ -18,8 +18,7 @@
                 padding-bottom: 1rem;
             }
             h2{
-                line-height: 0.9;
-                font-size: 50px;
+                font-size: 40px;
             }
         }
         & img{
@@ -47,7 +46,7 @@
             }
             & img{
                 height: 17rem;
-                width: 100%;
+                width: 100% !important;
                 object-fit: cover;
             } 
             &:before{
@@ -69,6 +68,21 @@
                 }
             }
         }
+    }
+    @media(max-width: 1175px) and (min-width: 577px){
+        .jumbotron{
+            & img{
+                height: 17rem;
+                object-fit: cover;
+                width: 70% !important;
+            }
+    
+            h2{
+                font-size: 30px !important;
+            }
+
+        }
+        
     }
 
     .course-info-content{
